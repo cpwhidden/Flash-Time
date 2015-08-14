@@ -441,7 +441,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems>
-                        <barButtonItem title="Back" id="pl5-Ky-xW4">
+                        <barButtonItem systemItem="undo" id="pl5-Ky-xW4">
                             <connections>
                                 <action selector="goBack:" destination="hrg-iL-W9q" id="d5M-K0-V2N"/>
                             </connections>
