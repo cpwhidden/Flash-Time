@@ -14,6 +14,9 @@
 		53706C0A1B7D3DC90042FF39 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53706C091B7D3DC90042FF39 /* Images.xcassets */; };
 		53706C0D1B7D3DC90042FF39 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53706C0B1B7D3DC90042FF39 /* LaunchScreen.xib */; };
 		53706C191B7D3DC90042FF39 /* Flash_TimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C181B7D3DC90042FF39 /* Flash_TimeTests.swift */; };
+		53706C331B7D80AC0042FF39 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C321B7D80AC0042FF39 /* Card.swift */; };
+		53706C351B7D80AD0042FF39 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C341B7D80AD0042FF39 /* Configuration.swift */; };
+		53706C371B7D80AD0042FF39 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C361B7D80AD0042FF39 /* Answer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,9 @@
 		53706C121B7D3DC90042FF39 /* Flash TimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flash TimeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53706C171B7D3DC90042FF39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53706C181B7D3DC90042FF39 /* Flash_TimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flash_TimeTests.swift; sourceTree = "<group>"; };
+		53706C321B7D80AC0042FF39 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		53706C341B7D80AD0042FF39 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		53706C361B7D80AD0042FF39 /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,9 @@
 			children = (
 				53706BFF1B7D3DC90042FF39 /* AppDelegate.swift */,
 				53706C041B7D3DC90042FF39 /* ViewController.swift */,
+				53706C361B7D80AD0042FF39 /* Answer.swift */,
+				53706C341B7D80AD0042FF39 /* Configuration.swift */,
+				53706C321B7D80AC0042FF39 /* Card.swift */,
 				53706C061B7D3DC90042FF39 /* Main.storyboard */,
 				53706C091B7D3DC90042FF39 /* Images.xcassets */,
 				53706C0B1B7D3DC90042FF39 /* LaunchScreen.xib */,
@@ -216,8 +225,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				53706C051B7D3DC90042FF39 /* ViewController.swift in Sources */,
+				53706C351B7D80AD0042FF39 /* Configuration.swift in Sources */,
 				53706C001B7D3DC90042FF39 /* AppDelegate.swift in Sources */,
+				53706C371B7D80AD0042FF39 /* Answer.swift in Sources */,
 				53706C031B7D3DC90042FF39 /* Flash_Time.xcdatamodeld in Sources */,
+				53706C331B7D80AC0042FF39 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

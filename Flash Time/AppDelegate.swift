@@ -109,3 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+func sharedContext() -> NSManagedObjectContext {
+    return (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
+}
+
