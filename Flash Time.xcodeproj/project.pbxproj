@@ -17,6 +17,15 @@
 		53706C351B7D80AD0042FF39 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C341B7D80AD0042FF39 /* Configuration.swift */; };
 		53706C371B7D80AD0042FF39 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C361B7D80AD0042FF39 /* Answer.swift */; };
 		53706C391B7D9CB90042FF39 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C381B7D9CB90042FF39 /* Group.swift */; };
+		53706C3C1B7DA4180042FF39 /* OverviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C3B1B7DA4180042FF39 /* OverviewTableViewController.swift */; };
+		53706C401B7DA67B0042FF39 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C3F1B7DA67B0042FF39 /* GroupViewController.swift */; };
+		53706C421B7DA6920042FF39 /* EditGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C411B7DA6920042FF39 /* EditGroupViewController.swift */; };
+		53706C441B7DAB720042FF39 /* ReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C431B7DAB720042FF39 /* ReviewTableViewController.swift */; };
+		53706C461B7DABBE0042FF39 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C451B7DABBE0042FF39 /* ImageTableViewCell.swift */; };
+		53706C481B7DAC2A0042FF39 /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C471B7DAC2A0042FF39 /* TextTableViewCell.swift */; };
+		53706C4A1B7DAED20042FF39 /* AddCardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C491B7DAED20042FF39 /* AddCardTableViewController.swift */; };
+		53706C4C1B7DAF590042FF39 /* CardConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C4B1B7DAF590042FF39 /* CardConfigurationViewController.swift */; };
+		53706C4E1B7DAFF70042FF39 /* CaptureImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C4D1B7DAFF70042FF39 /* CaptureImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +53,15 @@
 		53706C341B7D80AD0042FF39 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		53706C361B7D80AD0042FF39 /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		53706C381B7D9CB90042FF39 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		53706C3B1B7DA4180042FF39 /* OverviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewTableViewController.swift; sourceTree = "<group>"; };
+		53706C3F1B7DA67B0042FF39 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		53706C411B7DA6920042FF39 /* EditGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditGroupViewController.swift; sourceTree = "<group>"; };
+		53706C431B7DAB720042FF39 /* ReviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewController.swift; sourceTree = "<group>"; };
+		53706C451B7DABBE0042FF39 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		53706C471B7DAC2A0042FF39 /* TextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
+		53706C491B7DAED20042FF39 /* AddCardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardTableViewController.swift; sourceTree = "<group>"; };
+		53706C4B1B7DAF590042FF39 /* CardConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardConfigurationViewController.swift; sourceTree = "<group>"; };
+		53706C4D1B7DAFF70042FF39 /* CaptureImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +82,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5356D0791B7DB3AD001B5EEE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				53706C3B1B7DA4180042FF39 /* OverviewTableViewController.swift */,
+				53706C4D1B7DAFF70042FF39 /* CaptureImageViewController.swift */,
+				53706C4B1B7DAF590042FF39 /* CardConfigurationViewController.swift */,
+				53706C491B7DAED20042FF39 /* AddCardTableViewController.swift */,
+				53706C431B7DAB720042FF39 /* ReviewTableViewController.swift */,
+				53706C411B7DA6920042FF39 /* EditGroupViewController.swift */,
+				53706C3F1B7DA67B0042FF39 /* GroupViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		5356D07A1B7DB3C3001B5EEE /* Interface Components */ = {
+			isa = PBXGroup;
+			children = (
+				53706C471B7DAC2A0042FF39 /* TextTableViewCell.swift */,
+				53706C451B7DABBE0042FF39 /* ImageTableViewCell.swift */,
+			);
+			name = "Interface Components";
+			sourceTree = "<group>";
+		};
 		53706BF11B7D3DC90042FF39 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				53706C3A1B7D9CC40042FF39 /* Model */,
+				5356D0791B7DB3AD001B5EEE /* Controllers */,
+				5356D07A1B7DB3C3001B5EEE /* Interface Components */,
 				53706BFF1B7D3DC90042FF39 /* AppDelegate.swift */,
 				53706C061B7D3DC90042FF39 /* Main.storyboard */,
 				53706C091B7D3DC90042FF39 /* Images.xcassets */,
@@ -232,10 +275,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53706C401B7DA67B0042FF39 /* GroupViewController.swift in Sources */,
+				53706C3C1B7DA4180042FF39 /* OverviewTableViewController.swift in Sources */,
 				53706C391B7D9CB90042FF39 /* Group.swift in Sources */,
+				53706C4E1B7DAFF70042FF39 /* CaptureImageViewController.swift in Sources */,
+				53706C461B7DABBE0042FF39 /* ImageTableViewCell.swift in Sources */,
 				53706C351B7D80AD0042FF39 /* Configuration.swift in Sources */,
+				53706C421B7DA6920042FF39 /* EditGroupViewController.swift in Sources */,
+				53706C481B7DAC2A0042FF39 /* TextTableViewCell.swift in Sources */,
+				53706C4C1B7DAF590042FF39 /* CardConfigurationViewController.swift in Sources */,
 				53706C001B7D3DC90042FF39 /* AppDelegate.swift in Sources */,
+				53706C4A1B7DAED20042FF39 /* AddCardTableViewController.swift in Sources */,
 				53706C371B7D80AD0042FF39 /* Answer.swift in Sources */,
+				53706C441B7DAB720042FF39 /* ReviewTableViewController.swift in Sources */,
 				53706C031B7D3DC90042FF39 /* Flash_Time.xcdatamodeld in Sources */,
 				53706C331B7D80AC0042FF39 /* Card.swift in Sources */,
 			);
@@ -435,6 +487,7 @@
 				53706C1E1B7D3DC90042FF39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		53706C1F1B7D3DC90042FF39 /* Build configuration list for PBXNativeTarget "Flash TimeTests" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +496,7 @@
 				53706C211B7D3DC90042FF39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
