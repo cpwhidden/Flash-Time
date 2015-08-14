@@ -17,6 +17,7 @@
 		53706C331B7D80AC0042FF39 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C321B7D80AC0042FF39 /* Card.swift */; };
 		53706C351B7D80AD0042FF39 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C341B7D80AD0042FF39 /* Configuration.swift */; };
 		53706C371B7D80AD0042FF39 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C361B7D80AD0042FF39 /* Answer.swift */; };
+		53706C391B7D9CB90042FF39 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C381B7D9CB90042FF39 /* Group.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		53706C321B7D80AC0042FF39 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		53706C341B7D80AD0042FF39 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		53706C361B7D80AD0042FF39 /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		53706C381B7D9CB90042FF39 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,11 +87,9 @@
 		53706BFC1B7D3DC90042FF39 /* Flash Time */ = {
 			isa = PBXGroup;
 			children = (
+				53706C3A1B7D9CC40042FF39 /* Model */,
 				53706BFF1B7D3DC90042FF39 /* AppDelegate.swift */,
 				53706C041B7D3DC90042FF39 /* ViewController.swift */,
-				53706C361B7D80AD0042FF39 /* Answer.swift */,
-				53706C341B7D80AD0042FF39 /* Configuration.swift */,
-				53706C321B7D80AC0042FF39 /* Card.swift */,
 				53706C061B7D3DC90042FF39 /* Main.storyboard */,
 				53706C091B7D3DC90042FF39 /* Images.xcassets */,
 				53706C0B1B7D3DC90042FF39 /* LaunchScreen.xib */,
@@ -122,6 +122,17 @@
 				53706C171B7D3DC90042FF39 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		53706C3A1B7D9CC40042FF39 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				53706C361B7D80AD0042FF39 /* Answer.swift */,
+				53706C341B7D80AD0042FF39 /* Configuration.swift */,
+				53706C321B7D80AC0042FF39 /* Card.swift */,
+				53706C381B7D9CB90042FF39 /* Group.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53706C391B7D9CB90042FF39 /* Group.swift in Sources */,
 				53706C051B7D3DC90042FF39 /* ViewController.swift in Sources */,
 				53706C351B7D80AD0042FF39 /* Configuration.swift in Sources */,
 				53706C001B7D3DC90042FF39 /* AppDelegate.swift in Sources */,

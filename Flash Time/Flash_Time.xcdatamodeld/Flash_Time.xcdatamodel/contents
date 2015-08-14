@@ -13,6 +13,7 @@
         <attribute name="imagePath" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="answer" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Answer" inverseName="card" inverseEntity="Answer" syncable="YES"/>
         <relationship name="configuration" maxCount="1" deletionRule="Nullify" destinationEntity="Configuration" inverseName="cards" inverseEntity="Configuration" syncable="YES"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="cards" inverseEntity="Group" syncable="YES"/>
     </entity>
     <entity name="Configuration" representedClassName="Configuration" syncable="YES">
         <attribute name="easyMultiplier" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -22,10 +23,17 @@
         <attribute name="standardMultiplier" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="startingInterval" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="cards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Card" inverseName="configuration" inverseEntity="Card" syncable="YES"/>
+        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group" inverseName="defaultConfiguration" inverseEntity="Group" syncable="YES"/>
+    </entity>
+    <entity name="Group" representedClassName="PRODUCT_MODULE_NAME.Group" syncable="YES">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="cards" toMany="YES" deletionRule="Cascade" destinationEntity="Card" inverseName="group" inverseEntity="Card" syncable="YES"/>
+        <relationship name="defaultConfiguration" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Configuration" inverseName="groups" inverseEntity="Configuration" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Card" positionX="-63" positionY="-18" width="128" height="150"/>
         <element name="Answer" positionX="-54" positionY="18" width="128" height="90"/>
-        <element name="Configuration" positionX="-36" positionY="45" width="128" height="150"/>
+        <element name="Card" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="Configuration" positionX="-36" positionY="45" width="128" height="165"/>
+        <element name="Group" positionX="-18" positionY="99" width="128" height="90"/>
     </elements>
 </model>
