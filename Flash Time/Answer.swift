@@ -22,7 +22,7 @@ class Answer: NSManagedObject {
     }
     
     init(card: Card, correctness: NSNumber, date: NSDate, context: NSManagedObjectContext) {
-        let entity = NSEntityDescription.entityForName("Card", inManagedObjectContext: context)!
+        let entity = NSEntityDescription.entityForName("Answer", inManagedObjectContext: context)!
         super.init(entity: entity, insertIntoManagedObjectContext: context)
         self.card = card
         self.correctness = correctness
