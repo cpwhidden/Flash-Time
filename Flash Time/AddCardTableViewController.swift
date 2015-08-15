@@ -91,10 +91,11 @@ class AddCardTableViewController: UITableViewController {
             case "CaptureImage":
                 let dvc = (segue.destinationViewController as! UINavigationController).topViewController as! CaptureImageViewController
                 if let image = image {
-                    dvc.image = image
+                    dvc.startingImage = image
                 }
-                dvc.photoCompletionHandler = { image, imagePath in
+                dvc.photoCompletionHandler = { image in
                     // TODO: Delete current image at imagePath if found
+                    let imagePath = "" // TODO: Save new image to documents image path
                     self.image = image
                     self.imagePath = imagePath
                 }

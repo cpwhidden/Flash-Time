@@ -229,22 +229,14 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6f-3B-455">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="camera" id="MnD-RP-nj6">
+                                    <barButtonItem enabled="NO" systemItem="camera" id="MnD-RP-nj6">
                                         <connections>
                                             <action selector="getUserPhoto:" destination="XRi-LR-sXe" id="V9s-Ff-xm3"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="8ll-ll-Rmr"/>
-                                    <barButtonItem enabled="NO" style="plain" id="REK-L4-Wa6">
-                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" momentary="YES" id="ihr-oa-e9n">
-                                            <rect key="frame" x="164" y="7.5" width="123" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <segments>
-                                                <segment title="Previous" enabled="NO"/>
-                                                <segment title="Next" enabled="NO"/>
-                                            </segments>
-                                        </segmentedControl>
-                                    </barButtonItem>
+                                    <barButtonItem enabled="NO" systemItem="rewind" id="fiG-hH-3iX"/>
+                                    <barButtonItem enabled="NO" systemItem="fastForward" id="itR-WO-hjh"/>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -265,25 +257,25 @@
                     <navigationItem key="navigationItem" id="VAN-52-Lfn">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="vYt-jA-e1n">
                             <connections>
-                                <segue destination="gRI-vE-5Ks" kind="unwind" unwindAction="cancelAndUnwind:" id="aD4-8G-frk"/>
+                                <action selector="cancelTapped:" destination="XRi-LR-sXe" id="VpJ-9M-ibU"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="3Uf-AK-EMg">
                             <connections>
-                                <segue destination="gRI-vE-5Ks" kind="unwind" unwindAction="doneAndUnwind:" id="Otj-Od-ph1"/>
+                                <action selector="doneTapped:" destination="XRi-LR-sXe" id="SuJ-Ds-vPd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="lRb-3I-AG2" id="12k-jr-spG"/>
+                        <outlet property="nextButton" destination="itR-WO-hjh" id="xhy-Rq-ySM"/>
+                        <outlet property="pickerButton" destination="MnD-RP-nj6" id="LRI-lL-m7L"/>
+                        <outlet property="previousButton" destination="fiG-hH-3iX" id="8Uh-47-DEW"/>
                         <outlet property="searchBar" destination="OwJ-Ky-FGa" id="vcc-Pq-q8G"/>
                         <outlet property="searchDisplayController" destination="LOy-jz-cbG" id="h7f-fJ-4an"/>
-                        <outlet property="segmentBarButton" destination="REK-L4-Wa6" id="GaY-Dr-zLu"/>
-                        <outlet property="segmentedPhotoControl" destination="ihr-oa-e9n" id="Lug-bF-DUZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ad3-1b-bLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="gRI-vE-5Ks" userLabel="Exit" sceneMemberID="exit"/>
                 <searchDisplayController id="LOy-jz-cbG">
                     <connections>
                         <outlet property="delegate" destination="XRi-LR-sXe" id="8Oj-B3-NsT"/>

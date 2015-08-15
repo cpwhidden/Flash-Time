@@ -8,20 +8,27 @@
 
 import UIKit
 
-class CaptureImageViewController: UIViewController {
+class CaptureImageViewController: UIViewController, UISearchBarDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var segmentBarButton: UIBarButtonItem!
-    @IBOutlet weak var segmentedPhotoControl: UISegmentedControl!
+    @IBOutlet weak var previousButton: UIBarButtonItem!
+    @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var pickerButton: UIBarButtonItem!
     
-    var image: UIImage?
-    
-    var photoCompletionHandler: ((UIImage?, String?) -> Void)?
+    lazy var picker = UIImagePickerController()
+    var startingImage: UIImage?
+    var photoCompletionHandler: ((UIImage?) -> Void)?
+    var urls: [NSURL]?
+    var urlIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.image = image
+        imageView.image = startingImage
+        picker.delegate = self
         // Do any additional setup after loading the view.
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            pickerButton.enabled = true
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,25 +36,75 @@ class CaptureImageViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func cancelAndUnwind(sender: UIStoryboardSegue) {
-        
+    @IBAction func doneTapped(sender: UIBarButtonItem) {
+        photoCompletionHandler!(imageView.image)
+        dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    @IBAction func doneAndUnwind(sender: UIStoryboardSegue) {
-        
+
+    @IBAction func cancelTapped(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func getUserPhoto(sender: UIBarButtonItem) {
+        searchBar.text = ""
+        previousButton.enabled = false
+        nextButton.enabled = false
+        presentViewController(picker, animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func getPreviousPhoto() {
+        if urlIndex > 0 {
+//            downloadImageForURL(self.urls[--urlIndex]) { image, error in
+//                if error == nil && urls != nil {
+//                    self.imageView.image = image
+//                }
+//            }
+            nextButton.enabled = true
+        } else {
+            previousButton.enabled = false
+        }
     }
-    */
+    
+    func getNextPhoto() {
+        if urlIndex < urls!.count - 1 {
+//            downloadImageForURL(self.urls[++urlIndex]) { image, error in
+//                if error == nil && urls != nil {
+//                    self.imageView.image = image
+//                }
+//            }
+            previousButton.enabled = true
+        } else {
+            nextButton.enabled = false
+        }
+    }
+    
+    // MARK: Image Picker Controller Delegate
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        imageView.image = image
+    }
 
+    // MARK: Search Bar Delegate
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        if count(searchBar.text) > 0 {
+//            resumedTaskForURLsForKeyword(searchBar.text) { urls, error in
+//                if error == nil && urls != nil {
+//                    self.urls = urls
+//                    previousButton.enabled = false
+//                    if count(urls) > 0 {
+//                        downloadImageForURL(self.urls[0]) { image, error in
+//                            if error == nil && image != nil {
+//                                self.imageView.image = image
+//                                  self.urlIndex = 0
+//                            }
+//                        }
+//                    }
+//                    if count(urls) > 1 {
+//                        nextButton.enabled = true
+//                    }
+//                }
+//            }
+        }
+    }
 }
