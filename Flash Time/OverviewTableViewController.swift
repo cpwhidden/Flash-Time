@@ -24,7 +24,7 @@ class OverviewTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        groups = sharedContext().fetchAllOfEntity("Group") as! [Group] ?? []
+        groups = sharedContext.fetchAllOfEntity("Group") as! [Group] ?? []
     }
 
     override func didReceiveMemoryWarning() {
