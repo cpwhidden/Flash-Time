@@ -9,12 +9,17 @@
 import Foundation
 import CoreData
 
-@objc class Group: NSManagedObject {
+@objc(Group)
+class Group: NSManagedObject {
 
     @NSManaged var name: String
     @NSManaged var cards: NSSet?
     @NSManaged var defaultConfiguration: Configuration
 
+    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    }
+    
     init(name: String, cards: NSSet? = [], defaultConfiguration: Configuration, context: NSManagedObjectContext) {
         let entity = NSEntityDescription.entityForName("Group", inManagedObjectContext: context)!
         super.init(entity: entity, insertIntoManagedObjectContext: context)

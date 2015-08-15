@@ -9,7 +9,8 @@
 import Foundation
 import CoreData
 
-@objc class Card: NSManagedObject {
+@objc(Card)
+class Card: NSManagedObject {
 
     @NSManaged var front: String
     @NSManaged var back: String
@@ -19,6 +20,10 @@ import CoreData
     @NSManaged var answer: NSOrderedSet
     @NSManaged var configuration: Configuration
 
+    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    }
+    
     init(front: String, back: String, dueDate: NSDate, imagePath: String? = nil, configuration: Configuration, context: NSManagedObjectContext) {
         let entity = NSEntityDescription.entityForName("Card", inManagedObjectContext: context)!
         super.init(entity: entity, insertIntoManagedObjectContext: context)

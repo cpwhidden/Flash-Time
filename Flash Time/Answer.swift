@@ -9,11 +9,16 @@
 import Foundation
 import CoreData
 
-@objc class Answer: NSManagedObject {
+@objc(Answer)
+class Answer: NSManagedObject {
 
     @NSManaged var date: NSDate
     @NSManaged var correctness: NSNumber
     @NSManaged var card: Card
+    
+    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    }
     
     init(card: Card, correctness: NSNumber, date: NSDate, context: NSManagedObjectContext) {
         let entity = NSEntityDescription.entityForName("Card", inManagedObjectContext: context)!

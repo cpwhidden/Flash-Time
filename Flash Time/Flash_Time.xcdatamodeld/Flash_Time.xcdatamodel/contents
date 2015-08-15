@@ -26,7 +26,7 @@
         <relationship name="cards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Card" inverseName="configuration" inverseEntity="Card" syncable="YES"/>
         <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group" inverseName="defaultConfiguration" inverseEntity="Group" syncable="YES"/>
     </entity>
-    <entity name="Group" representedClassName="PRODUCT_MODULE_NAME.Group" syncable="YES">
+    <entity name="Group" representedClassName="Group" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="cards" toMany="YES" deletionRule="Cascade" destinationEntity="Card" inverseName="group" inverseEntity="Card" syncable="YES"/>
         <relationship name="defaultConfiguration" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Configuration" inverseName="groups" inverseEntity="Configuration" syncable="YES"/>

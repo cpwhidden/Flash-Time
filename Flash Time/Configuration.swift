@@ -9,7 +9,8 @@
 import Foundation
 import CoreData
 
-@objc class Configuration: NSManagedObject {
+@objc(Configuration)
+class Configuration: NSManagedObject {
 
     @NSManaged var restartInterval: NSNumber
     @NSManaged var isCustom: NSNumber
@@ -19,6 +20,10 @@ import CoreData
     @NSManaged var hardMultiplier: NSNumber
     @NSManaged var cards: NSSet
     @NSManaged var name: String
+    
+    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    }
 
     init(name: String, startingInterval: NSNumber, standardMultiplier: NSNumber, hardMultiplier: NSNumber, easyMultiplier: NSNumber, restartInterval: NSNumber, isCustom: Bool, cards: [Card], context: NSManagedObjectContext) {
         let entity = NSEntityDescription.entityForName("Configuration", inManagedObjectContext: context)!
