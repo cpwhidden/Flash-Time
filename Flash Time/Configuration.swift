@@ -18,8 +18,9 @@ class Configuration: NSManagedObject {
     @NSManaged var easyMultiplier: NSNumber
     @NSManaged var hardMultiplier: NSNumber
     @NSManaged var cards: NSSet
+    @NSManaged var name: String
 
-    init(startingInterval: NSNumber, standardMultiplier: NSNumber, hardMultiplier: NSNumber, easyMultiplier: NSNumber, restartInterval: NSNumber, isCustom: Bool, cards: [Card], context: NSManagedObjectContext) {
+    init(name: String, startingInterval: NSNumber, standardMultiplier: NSNumber, hardMultiplier: NSNumber, easyMultiplier: NSNumber, restartInterval: NSNumber, isCustom: Bool, cards: [Card], context: NSManagedObjectContext) {
         let entity = NSEntityDescription.entityForName("Configuration", inManagedObjectContext: context)!
         super.init(entity: entity, insertIntoManagedObjectContext: context)
         self.startingInterval = startingInterval
@@ -28,9 +29,10 @@ class Configuration: NSManagedObject {
         self.easyMultiplier = easyMultiplier
         self.restartInterval = restartInterval
         self.isCustom = isCustom
+        self.name = name
     }
     
-    convenience init(startingInterval: NSNumber, standardMultiplier: NSNumber, hardMultiplier: NSNumber, easyMultiplier: NSNumber, restartInterval: NSNumber, isCustom: Bool, cards: [Card]) {
-        self.init(startingInterval: startingInterval, standardMultiplier: standardMultiplier, hardMultiplier: hardMultiplier, easyMultiplier: easyMultiplier, restartInterval: restartInterval, isCustom: isCustom, cards: cards, context: sharedContext)
+    convenience init(name: String, startingInterval: NSNumber, standardMultiplier: NSNumber, hardMultiplier: NSNumber, easyMultiplier: NSNumber, restartInterval: NSNumber, isCustom: Bool, cards: [Card]) {
+        self.init(name: name, startingInterval: startingInterval, standardMultiplier: standardMultiplier, hardMultiplier: hardMultiplier, easyMultiplier: easyMultiplier, restartInterval: restartInterval, isCustom: isCustom, cards: cards, context: sharedContext)
     }
 }
