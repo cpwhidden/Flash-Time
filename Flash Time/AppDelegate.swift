@@ -17,6 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if count(sharedContext.fetchAllOfEntity("Configuration") as! [Configuration]) == 0 {
+            Configuration(name: "Ultra Fast (for testing)", startingInterval: 5, standardMultiplier: 100, hardMultiplier: 75, easyMultiplier: 150, restartInterval: 10, isCustom: false, cards: [])
+            Configuration(name: "Standard", startingInterval: 60 * 60, standardMultiplier: 100, hardMultiplier: 75, easyMultiplier: 150, restartInterval: 10, isCustom: false, cards: [])
+            Configuration(name: "Difficult", startingInterval: 5, standardMultiplier: 100, hardMultiplier: 50, easyMultiplier: 120, restartInterval: 10, isCustom: false, cards: [])
+        }
+        
         return true
     }
 
