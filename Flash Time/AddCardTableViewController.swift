@@ -89,7 +89,7 @@ class AddCardTableViewController: UITableViewController {
                 let dvc = (segue.destinationViewController as! UINavigationController).topViewController as! CardConfigurationViewController
                 dvc.configuration = group.defaultConfiguration
                 dvc.configurationCompletionHandler = { configuration in
-                    self.customConfiguration = customConfiguration
+                    self.customConfiguration = configuration
                 }
             case "CaptureImage":
                 let dvc = (segue.destinationViewController as! UINavigationController).topViewController as! CaptureImageViewController
