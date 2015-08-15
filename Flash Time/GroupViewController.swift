@@ -13,6 +13,7 @@ class GroupViewController: UIViewController {
     @IBOutlet weak var totalCardsLabel: UILabel!
     
     var group: Group!
+    var cards: [Card]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +23,11 @@ class GroupViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.title = group.name
-        totalCardsLabel.text = "You have \(group.cards?.count) total in this group"
+        totalCardsLabel.text = "You have \((group.cards != nil) ? group.cards!.count : 0) total in this group"
         
-        // TODO: Get total number of cards due from Core Data
+        cards = sharedContext.fetchCardsDueInGroup(group) as! [Card]
+        cardsDueLabel.text = "You have \(cards.count) cards due"
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,6 +52,7 @@ class GroupViewController: UIViewController {
             case "StartReview":
                 let dvc = segue.destinationViewController as! ReviewTableViewController
                 dvc.group = group
+                dvc.cards = cards
             default:
                 break
             }

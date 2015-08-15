@@ -14,4 +14,13 @@ extension NSManagedObjectContext {
         let request = NSFetchRequest(entityName: entity)
         return self.executeFetchRequest(request, error: nil)
     }
+    
+    func fetchCardsDueInGroup(group: Group) -> [AnyObject]? {
+        let request = NSFetchRequest(entityName: "Card")
+        let predicate = NSPredicate(format: "group == %@ && dueDate < %@", argumentArray: [group, NSDate()])
+        request.predicate = predicate
+        let sortByDueDate = NSSortDescriptor(key: "dueDate", ascending: true)
+        request.sortDescriptors = [sortByDueDate]
+        return self.executeFetchRequest(request, error: nil)
+    }
 }

@@ -474,19 +474,19 @@
                     <toolbarItems>
                         <barButtonItem systemItem="undo" id="pl5-Ky-xW4">
                             <connections>
-                                <action selector="goBack:" destination="hrg-iL-W9q" id="d5M-K0-V2N"/>
+                                <action selector="undoTapped:" destination="hrg-iL-W9q" id="0WW-7G-Vdm"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="xd5-2l-0q2"/>
                         <barButtonItem title="Reveal" id="aHu-Gs-3CQ">
                             <connections>
-                                <action selector="revealAnswer:" destination="hrg-iL-W9q" id="AHD-zb-0Sc"/>
+                                <action selector="revealTapped:" destination="hrg-iL-W9q" id="Ibm-on-WH2"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Iih-J0-EdL"/>
                         <barButtonItem title="Skip" id="gfz-d2-Fc2">
                             <connections>
-                                <action selector="skip:" destination="hrg-iL-W9q" id="sao-S2-ZpN"/>
+                                <action selector="skipTapped:" destination="hrg-iL-W9q" id="M7m-E2-0ZB"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
