@@ -302,9 +302,16 @@
                                 <rect key="frame" x="109" y="147" width="379" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Fax-mn-LBN" id="nLg-wq-her"/>
+                                </connections>
                             </textField>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7i5-ag-iZM">
                                 <rect key="frame" x="0.0" y="284" width="600" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Fax-mn-LBN" id="LZF-II-SHR"/>
+                                    <outlet property="delegate" destination="Fax-mn-LBN" id="sm3-tw-SSQ"/>
+                                </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCt-Tx-Lj6">
                                 <rect key="frame" x="272" y="93" width="46" height="21"/>
@@ -341,10 +348,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Group" id="pvL-gn-Xt0">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="sCO-dg-bNn"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="j6I-Ik-oD2">
+                            <connections>
+                                <action selector="cancelTapped:" destination="Fax-mn-LBN" id="plj-AV-JUJ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="sCO-dg-bNn">
+                            <connections>
+                                <action selector="doneTapped:" destination="Fax-mn-LBN" id="pbL-cp-6na"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="configurationPicker" destination="7i5-ag-iZM" id="N52-jE-DhG"/>
+                        <outlet property="doneButton" destination="sCO-dg-bNn" id="3Tv-sW-aGY"/>
                         <outlet property="nameTextField" destination="y5l-eL-WUQ" id="mae-uu-Xw8"/>
                     </connections>
                 </viewController>

@@ -88,12 +88,12 @@
 			isa = PBXGroup;
 			children = (
 				53706C3B1B7DA4180042FF39 /* OverviewTableViewController.swift */,
-				53706C4D1B7DAFF70042FF39 /* CaptureImageViewController.swift */,
-				53706C4B1B7DAF590042FF39 /* CardConfigurationViewController.swift */,
-				53706C491B7DAED20042FF39 /* AddCardTableViewController.swift */,
-				53706C431B7DAB720042FF39 /* ReviewTableViewController.swift */,
 				53706C411B7DA6920042FF39 /* EditGroupViewController.swift */,
 				53706C3F1B7DA67B0042FF39 /* GroupViewController.swift */,
+				53706C431B7DAB720042FF39 /* ReviewTableViewController.swift */,
+				53706C491B7DAED20042FF39 /* AddCardTableViewController.swift */,
+				53706C4B1B7DAF590042FF39 /* CardConfigurationViewController.swift */,
+				53706C4D1B7DAFF70042FF39 /* CaptureImageViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
