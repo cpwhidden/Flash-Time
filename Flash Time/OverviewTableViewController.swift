@@ -11,10 +11,12 @@ import UIKit
 class OverviewTableViewController: UITableViewController {
     @IBOutlet weak var noGroupLabel: UIView!
     var groups: [Group]!
+    var dueCounts: [Int]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -25,6 +27,10 @@ class OverviewTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         groups = (sharedContext.fetchAllOfEntity("Group") as! [Group]) ?? []
+        
+        dueCounts = map(groups) { group in
+            return count(sharedContext.fetchCardsDueInGroup(group)!)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,6 +79,7 @@ class OverviewTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("group", forIndexPath: indexPath) as! UITableViewCell
         cell.textLabel!.text = groups[indexPath.row].name
+        cell.detailTextLabel!.text = "\(dueCounts[indexPath.row]) due"
 
         return cell
     }
