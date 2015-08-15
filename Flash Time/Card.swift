@@ -30,6 +30,6 @@ class Card: NSManagedObject {
     }
     
     convenience init(front: String, back: String, dueDate: NSDate, imagePath: String? = nil, configuration: Configuration) {
-        self.init(front: front, back: back, dueDate: dueDate, imagePath: imagePath, configuration: configuration, context: sharedContext())
+        self.init(front: front, back: back, dueDate: dueDate, imagePath: imagePath, configuration: configuration, context: sharedContext)
     }
 }

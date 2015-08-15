@@ -31,6 +31,6 @@ class Configuration: NSManagedObject {
     }
     
     convenience init(startingInterval: NSNumber, standardMultiplier: NSNumber, hardMultiplier: NSNumber, easyMultiplier: NSNumber, restartInterval: NSNumber, isCustom: Bool, cards: [Card]) {
-        self.init(startingInterval: startingInterval, standardMultiplier: standardMultiplier, hardMultiplier: hardMultiplier, easyMultiplier: easyMultiplier, restartInterval: restartInterval, isCustom: isCustom, cards: cards, context: sharedContext())
+        self.init(startingInterval: startingInterval, standardMultiplier: standardMultiplier, hardMultiplier: hardMultiplier, easyMultiplier: easyMultiplier, restartInterval: restartInterval, isCustom: isCustom, cards: cards, context: sharedContext)
     }
 }

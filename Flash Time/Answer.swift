@@ -24,7 +24,7 @@ class Answer: NSManagedObject {
     }
     
     convenience init(card: Card, correctness: NSNumber, date: NSDate) {
-        self.init(card: card, correctness: correctness, date: date, context: sharedContext())
+        self.init(card: card, correctness: correctness, date: date, context: sharedContext)
     }
 
 }
