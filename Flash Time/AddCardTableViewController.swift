@@ -34,9 +34,9 @@ class AddCardTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if image != nil {
-            return 2
-        } else {
             return 3
+        } else {
+            return 2
         }
     }
 
@@ -59,7 +59,7 @@ class AddCardTableViewController: UITableViewController {
             }
         case 2:
             let cell = tableView.dequeueReusableCellWithIdentifier("Text", forIndexPath: indexPath) as! TextTableViewCell
-            cell.textView.text = "Front"
+            cell.textView.text = "Back"
             return cell
         default:
             fatalError("Index for card cell out of range")

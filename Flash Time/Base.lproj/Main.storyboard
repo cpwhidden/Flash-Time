@@ -465,31 +465,43 @@
                                     <outlet property="textView" destination="UEe-Xm-FIo" id="rRc-9c-AAP"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Reveal" rowHeight="44" id="iew-Qv-1QK" customClass="TextTableViewCell" customModule="Flash_Time" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iew-Qv-1QK" id="VII-r1-A2k">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z36-3q-CMT">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <items>
+                                                <barButtonItem systemItem="undo" id="pl5-Ky-xW4">
+                                                    <connections>
+                                                        <action selector="undoTapped:" destination="hrg-iL-W9q" id="0WW-7G-Vdm"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <barButtonItem style="plain" systemItem="flexibleSpace" id="xd5-2l-0q2"/>
+                                                <barButtonItem title="Reveal" id="aHu-Gs-3CQ">
+                                                    <connections>
+                                                        <action selector="revealTapped:" destination="hrg-iL-W9q" id="Ibm-on-WH2"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <barButtonItem style="plain" systemItem="flexibleSpace" id="Iih-J0-EdL"/>
+                                                <barButtonItem title="Skip" id="gfz-d2-Fc2">
+                                                    <connections>
+                                                        <action selector="skipTapped:" destination="hrg-iL-W9q" id="M7m-E2-0ZB"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </items>
+                                        </toolbar>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="hrg-iL-W9q" id="adq-OM-qLZ"/>
                             <outlet property="delegate" destination="hrg-iL-W9q" id="Ouz-fO-i3p"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem systemItem="undo" id="pl5-Ky-xW4">
-                            <connections>
-                                <action selector="undoTapped:" destination="hrg-iL-W9q" id="0WW-7G-Vdm"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="xd5-2l-0q2"/>
-                        <barButtonItem title="Reveal" id="aHu-Gs-3CQ">
-                            <connections>
-                                <action selector="revealTapped:" destination="hrg-iL-W9q" id="Ibm-on-WH2"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Iih-J0-EdL"/>
-                        <barButtonItem title="Skip" id="gfz-d2-Fc2">
-                            <connections>
-                                <action selector="skipTapped:" destination="hrg-iL-W9q" id="M7m-E2-0ZB"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UL4-iq-leS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -525,6 +537,9 @@
                                         <constraint firstItem="bzF-DJ-3am" firstAttribute="leading" secondItem="ex2-eA-YdU" secondAttribute="leading" id="uFr-1n-YEe"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="textView" destination="bzF-DJ-3am" id="wfY-YY-lwo"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Image" rowHeight="200" id="p8Y-uQ-SgZ" customClass="ImageTableViewCell" customModule="Flash_Time" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -542,6 +557,9 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="dWE-BT-rli" secondAttribute="bottom" constant="-8.5" id="bfx-hG-s0I"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="associatedImage" destination="dWE-BT-rli" id="jbD-uj-8Hw"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
