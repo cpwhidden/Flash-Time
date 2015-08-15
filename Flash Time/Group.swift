@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class Group: NSManagedObject {
+@objc class Group: NSManagedObject {
 
     @NSManaged var name: String
     @NSManaged var cards: NSSet?

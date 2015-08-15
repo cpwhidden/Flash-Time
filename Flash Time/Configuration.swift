@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class Configuration: NSManagedObject {
+@objc class Configuration: NSManagedObject {
 
     @NSManaged var restartInterval: NSNumber
     @NSManaged var isCustom: NSNumber

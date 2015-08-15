@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class Card: NSManagedObject {
+@objc class Card: NSManagedObject {
 
     @NSManaged var front: String
     @NSManaged var back: String

@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class Answer: NSManagedObject {
+@objc class Answer: NSManagedObject {
 
     @NSManaged var date: NSDate
     @NSManaged var correctness: NSNumber
