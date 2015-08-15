@@ -30,6 +30,7 @@ class Configuration: NSManagedObject {
         self.restartInterval = restartInterval
         self.isCustom = isCustom
         self.name = name
+        sharedContext.save(nil)
     }
     
     convenience init(name: String, startingInterval: NSNumber, standardMultiplier: NSNumber, hardMultiplier: NSNumber, easyMultiplier: NSNumber, restartInterval: NSNumber, isCustom: Bool, cards: [Card]) {

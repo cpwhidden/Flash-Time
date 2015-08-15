@@ -21,6 +21,7 @@ class Answer: NSManagedObject {
         self.card = card
         self.correctness = correctness
         self.date = date
+        context.save(nil)
     }
     
     convenience init(card: Card, correctness: NSNumber, date: NSDate) {

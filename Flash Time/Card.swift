@@ -27,6 +27,7 @@ class Card: NSManagedObject {
         self.dueDate = dueDate
         self.imagePath = imagePath
         self.configuration = configuration
+        sharedContext.save(nil)
     }
     
     convenience init(front: String, back: String, dueDate: NSDate, imagePath: String? = nil, configuration: Configuration) {
