@@ -46,7 +46,7 @@ class GroupViewController: UIViewController {
             case "EditGroup":
                 let dvc = (segue.destinationViewController as! UINavigationController).topViewController as! EditGroupViewController
                 dvc.group = group
-            case "AddGroup":
+            case "AddCard":
                 let dvc = (segue.destinationViewController as! UINavigationController).topViewController as! AddCardTableViewController
                 dvc.group = group
             case "StartReview":
