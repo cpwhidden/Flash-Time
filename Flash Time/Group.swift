@@ -24,6 +24,6 @@ class Group: NSManagedObject {
     }
     
     convenience init(name: String, cards: NSSet? = [], defaultConfiguration: Configuration) {
-        self.init(name: name, cards: cards, defaultConfiguration: defaultConfiguration, context: sharedContext())
+        self.init(name: name, cards: cards, defaultConfiguration: defaultConfiguration, context: sharedContext)
     }
 }
