@@ -26,6 +26,7 @@
 		53706C4A1B7DAED20042FF39 /* AddCardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C491B7DAED20042FF39 /* AddCardTableViewController.swift */; };
 		53706C4C1B7DAF590042FF39 /* CardConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C4B1B7DAF590042FF39 /* CardConfigurationViewController.swift */; };
 		53706C4E1B7DAFF70042FF39 /* CaptureImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53706C4D1B7DAFF70042FF39 /* CaptureImageViewController.swift */; };
+		53E8EBA41B7ECEC100332C90 /* CoreDataFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E8EBA31B7ECEC100332C90 /* CoreDataFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		53706C491B7DAED20042FF39 /* AddCardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardTableViewController.swift; sourceTree = "<group>"; };
 		53706C4B1B7DAF590042FF39 /* CardConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardConfigurationViewController.swift; sourceTree = "<group>"; };
 		53706C4D1B7DAFF70042FF39 /* CaptureImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureImageViewController.swift; sourceTree = "<group>"; };
+		53E8EBA31B7ECEC100332C90 /* CoreDataFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				5356D07A1B7DB3C3001B5EEE /* Interface Components */,
 				53706BFF1B7D3DC90042FF39 /* AppDelegate.swift */,
 				53706C061B7D3DC90042FF39 /* Main.storyboard */,
+				53E8EBA31B7ECEC100332C90 /* CoreDataFunctions.swift */,
 				53706C091B7D3DC90042FF39 /* Images.xcassets */,
 				53706C0B1B7D3DC90042FF39 /* LaunchScreen.xib */,
 				53706C011B7D3DC90042FF39 /* Flash_Time.xcdatamodeld */,
@@ -289,6 +292,7 @@
 				53706C371B7D80AD0042FF39 /* Answer.swift in Sources */,
 				53706C441B7DAB720042FF39 /* ReviewTableViewController.swift in Sources */,
 				53706C031B7D3DC90042FF39 /* Flash_Time.xcdatamodeld in Sources */,
+				53E8EBA41B7ECEC100332C90 /* CoreDataFunctions.swift in Sources */,
 				53706C331B7D80AC0042FF39 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

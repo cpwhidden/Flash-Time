@@ -10,6 +10,8 @@ import UIKit
 
 class GroupViewController: UIViewController {
     @IBOutlet weak var cardsDueLabel: UILabel!
+    
+    var group: Group?
 
     override func viewDidLoad() {
         super.viewDidLoad()

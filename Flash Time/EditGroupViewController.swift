@@ -11,6 +11,7 @@ import UIKit
 class EditGroupViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var configurationPicker: UIPickerView!
+    var group: Group?
 
     override func viewDidLoad() {
         super.viewDidLoad()
