@@ -3,7 +3,7 @@
     <entity name="Answer" representedClassName="Answer" syncable="YES">
         <attribute name="correctness" attributeType="Integer 64" minValueString="0" maxValueString="3" defaultValueString="0" syncable="YES"/>
         <attribute name="date" attributeType="Date" indexed="YES" syncable="YES"/>
-        <relationship name="card" maxCount="1" deletionRule="Nullify" destinationEntity="Card" inverseName="answer" inverseEntity="Card" syncable="YES"/>
+        <relationship name="card" maxCount="1" deletionRule="Nullify" destinationEntity="Card" inverseName="answers" inverseEntity="Card" syncable="YES"/>
     </entity>
     <entity name="Card" representedClassName="Card" syncable="YES">
         <attribute name="back" attributeType="String" syncable="YES"/>
@@ -11,7 +11,7 @@
         <attribute name="front" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imagePath" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="answer" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Answer" inverseName="card" inverseEntity="Answer" syncable="YES"/>
+        <relationship name="answers" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Answer" inverseName="card" inverseEntity="Answer" syncable="YES"/>
         <relationship name="configuration" maxCount="1" deletionRule="Nullify" destinationEntity="Configuration" inverseName="cards" inverseEntity="Configuration" syncable="YES"/>
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="cards" inverseEntity="Group" syncable="YES"/>
     </entity>

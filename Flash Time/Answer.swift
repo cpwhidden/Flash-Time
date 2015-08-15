@@ -15,6 +15,7 @@ class Answer: NSManagedObject {
     @NSManaged var date: NSDate
     @NSManaged var correctness: NSNumber
     @NSManaged var card: Card
+    @NSManaged var answers: [Answer]
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
