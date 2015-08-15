@@ -9,6 +9,7 @@
 import UIKit
 
 class ReviewTableViewController: UITableViewController {
+    var group: Group!
 
     override func viewDidLoad() {
         super.viewDidLoad()

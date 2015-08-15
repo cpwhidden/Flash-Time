@@ -95,27 +95,33 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hrg-iL-W9q" kind="show" id="KUK-Ws-mlw"/>
+                                    <segue destination="hrg-iL-W9q" kind="show" identifier="StartReview" id="KUK-Ws-mlw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQE-Fm-9R4">
-                                <rect key="frame" x="151" y="97" width="66" height="30"/>
+                                <rect key="frame" x="402" y="97" width="66" height="30"/>
                                 <state key="normal" title="Add Card">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="rJ3-iV-uie" kind="show" id="kPp-dL-Qd9"/>
+                                    <segue destination="rJ3-iV-uie" kind="show" identifier="AddCard" id="kPp-dL-Qd9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qV9-uz-c2H">
-                                <rect key="frame" x="378" y="97" width="74" height="30"/>
+                                <rect key="frame" x="135" y="97" width="74" height="30"/>
                                 <state key="normal" title="Edit Group">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Ccu-9K-dlG" kind="presentation" id="MAB-B8-bS2"/>
+                                    <segue destination="Ccu-9K-dlG" kind="presentation" identifier="EditGroup" id="MAB-B8-bS2"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have 10 cards total in this group" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iaz-aa-HPS">
+                                <rect key="frame" x="160" y="167" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have 5 cards due" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWT-wI-hSR">
                                 <rect key="frame" x="217" y="241" width="166" height="21"/>
                                 <constraints>
@@ -129,19 +135,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nEB-oP-NDi" firstAttribute="top" secondItem="9xm-zW-urV" secondAttribute="bottom" constant="214" id="1AX-H9-kGe"/>
+                            <constraint firstItem="xWT-wI-hSR" firstAttribute="top" secondItem="Iaz-aa-HPS" secondAttribute="bottom" constant="53" id="3it-3U-13y"/>
                             <constraint firstItem="qV9-uz-c2H" firstAttribute="baseline" secondItem="xQE-Fm-9R4" secondAttribute="baseline" id="4Wo-ta-jco"/>
-                            <constraint firstItem="xQE-Fm-9R4" firstAttribute="leading" secondItem="hds-6o-sRn" secondAttribute="leading" constant="151" id="5Yd-W8-Psm"/>
+                            <constraint firstItem="xQE-Fm-9R4" firstAttribute="leading" secondItem="hds-6o-sRn" secondAttribute="leading" constant="402" id="5Yd-W8-Psm"/>
                             <constraint firstItem="xWT-wI-hSR" firstAttribute="centerX" secondItem="9xm-zW-urV" secondAttribute="centerX" id="ILA-qM-mqF"/>
+                            <constraint firstAttribute="centerX" secondItem="Iaz-aa-HPS" secondAttribute="centerX" id="RQp-qn-NzQ"/>
                             <constraint firstItem="xQE-Fm-9R4" firstAttribute="top" secondItem="LE1-xb-GeC" secondAttribute="bottom" constant="33" id="eDt-VJ-grW"/>
-                            <constraint firstAttribute="trailing" secondItem="qV9-uz-c2H" secondAttribute="trailing" constant="148" id="fPP-W8-3BU"/>
+                            <constraint firstAttribute="trailing" secondItem="qV9-uz-c2H" secondAttribute="trailing" constant="391" id="fPP-W8-3BU"/>
                             <constraint firstItem="xWT-wI-hSR" firstAttribute="centerX" secondItem="hds-6o-sRn" secondAttribute="centerX" id="g6Z-J4-anO"/>
                             <constraint firstItem="9xm-zW-urV" firstAttribute="top" secondItem="xWT-wI-hSR" secondAttribute="bottom" constant="94" id="gZb-J3-8ep"/>
+                            <constraint firstItem="Iaz-aa-HPS" firstAttribute="top" secondItem="xQE-Fm-9R4" secondAttribute="bottom" constant="40" id="w60-bN-S2H"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Group" id="oJw-4c-a98"/>
                     <connections>
                         <outlet property="cardsDueLabel" destination="xWT-wI-hSR" id="oeE-WQ-eRV"/>
+                        <outlet property="totalCardsLabel" destination="Iaz-aa-HPS" id="leS-kU-ZiA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hqu-vM-4Ma" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -439,7 +448,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1DT-hm-mKr" id="k5L-T1-xtL">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UEe-Xm-FIo">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UEe-Xm-FIo">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -448,10 +457,10 @@
                                         </textView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="UEe-Xm-FIo" firstAttribute="leading" secondItem="k5L-T1-xtL" secondAttribute="leading" id="YX8-UL-Mdh"/>
-                                        <constraint firstItem="UEe-Xm-FIo" firstAttribute="centerY" secondItem="k5L-T1-xtL" secondAttribute="centerY" id="n2f-uc-cX2"/>
-                                        <constraint firstAttribute="trailing" secondItem="UEe-Xm-FIo" secondAttribute="trailing" id="vDC-Ot-yKK"/>
-                                        <constraint firstItem="UEe-Xm-FIo" firstAttribute="top" secondItem="k5L-T1-xtL" secondAttribute="topMargin" constant="-9" id="yt9-fS-ANH"/>
+                                        <constraint firstAttribute="trailing" secondItem="UEe-Xm-FIo" secondAttribute="trailing" id="FNB-k8-ngv"/>
+                                        <constraint firstItem="UEe-Xm-FIo" firstAttribute="top" secondItem="k5L-T1-xtL" secondAttribute="top" id="WLg-ew-l36"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="UEe-Xm-FIo" secondAttribute="bottom" constant="-8.5" id="gw9-Kg-KGN"/>
+                                        <constraint firstItem="UEe-Xm-FIo" firstAttribute="leading" secondItem="k5L-T1-xtL" secondAttribute="leading" id="svb-kM-RwQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -616,6 +625,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wiG-3B-R8d"/>
+        <segue reference="MAB-B8-bS2"/>
     </inferredMetricsTieBreakers>
 </document>

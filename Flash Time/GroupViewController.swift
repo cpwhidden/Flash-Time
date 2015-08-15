@@ -10,13 +10,21 @@ import UIKit
 
 class GroupViewController: UIViewController {
     @IBOutlet weak var cardsDueLabel: UILabel!
+    @IBOutlet weak var totalCardsLabel: UILabel!
     
-    var group: Group?
+    var group: Group!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.title = group.name
+        totalCardsLabel.text = "You have \(group.cards?.count) total in this group"
+        
+        // TODO: Get total number of cards due from Core Data
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,14 +33,27 @@ class GroupViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let id = segue.identifier {
+            switch id {
+            case "EditGroup":
+                let dvc = (segue.destinationViewController as! UINavigationController).topViewController as! EditGroupViewController
+                dvc.group = group
+            case "AddGroup":
+                let dvc = (segue.destinationViewController as! UINavigationController).topViewController as! AddCardTableViewController
+                dvc.group = group
+            case "StartReview":
+                let dvc = segue.destinationViewController as! ReviewTableViewController
+                dvc.group = group
+            default:
+                break
+            }
+        }
     }
-    */
+    
 
 }

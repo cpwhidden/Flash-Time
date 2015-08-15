@@ -9,6 +9,7 @@
 import UIKit
 
 class AddCardTableViewController: UITableViewController {
+    var group: Group!
 
     override func viewDidLoad() {
         super.viewDidLoad()
