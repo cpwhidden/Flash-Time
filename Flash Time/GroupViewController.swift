@@ -50,7 +50,7 @@ class GroupViewController: UIViewController {
                 let dvc = (segue.destinationViewController as! UINavigationController).topViewController as! AddCardTableViewController
                 dvc.group = group
             case "StartReview":
-                let dvc = segue.destinationViewController as! ReviewTableViewController
+                let dvc = (segue.destinationViewController as! UINavigationController).topViewController as! ReviewTableViewController
                 dvc.group = group
                 dvc.cards = cards
             default:

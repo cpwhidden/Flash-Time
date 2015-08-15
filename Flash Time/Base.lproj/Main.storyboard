@@ -97,7 +97,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hrg-iL-W9q" kind="show" identifier="StartReview" id="KUK-Ws-mlw"/>
+                                    <segue destination="35c-hP-pt0" kind="show" identifier="StartReview" id="KUK-Ws-mlw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQE-Fm-9R4">
@@ -291,7 +291,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="4667" y="1119"/>
+            <point key="canvasLocation" x="5479" y="1119"/>
         </scene>
         <!--New Group-->
         <scene sceneID="vBk-Pd-TnQ">
@@ -386,6 +386,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="aWL-E7-fbv">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="qjb-9p-5MP" kind="relationship" relationship="rootViewController" id="N9M-Ty-wb0"/>
                     </connections>
@@ -397,13 +400,16 @@
         <!--Navigation Controller-->
         <scene sceneID="Gvm-6d-LJI">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rJ3-iV-uie" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="rJ3-iV-uie" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="V8s-oU-D3u">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="dSb-eS-SaZ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="ZEZ-zD-tOs" kind="relationship" relationship="rootViewController" id="SdJ-l8-tG8"/>
                     </connections>
@@ -420,6 +426,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="kpt-so-hcV">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This group has no cards to study." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNd-0z-3Kn">
+                                    <rect key="frame" x="173" y="11" width="255.5" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="HNd-0z-3Kn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kpt-so-hcV" secondAttribute="leading" id="I6R-0i-rSj"/>
+                                <constraint firstAttribute="centerX" secondItem="HNd-0z-3Kn" secondAttribute="centerX" constant="-0.5" id="MLp-EO-gr9"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HNd-0z-3Kn" secondAttribute="trailing" id="NEf-iW-mCs"/>
+                                <constraint firstAttribute="centerY" secondItem="HNd-0z-3Kn" secondAttribute="centerY" constant="0.5" id="Rc7-sy-pcO"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Image" rowHeight="200" id="Qid-4M-ClP" customClass="ImageTableViewCell" customModule="Flash_Time" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -465,48 +490,40 @@
                                     <outlet property="textView" destination="UEe-Xm-FIo" id="rRc-9c-AAP"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Reveal" rowHeight="44" id="iew-Qv-1QK" customClass="TextTableViewCell" customModule="Flash_Time" customModuleProvider="target">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iew-Qv-1QK" id="VII-r1-A2k">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z36-3q-CMT">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                            <items>
-                                                <barButtonItem systemItem="undo" id="pl5-Ky-xW4">
-                                                    <connections>
-                                                        <action selector="undoTapped:" destination="hrg-iL-W9q" id="0WW-7G-Vdm"/>
-                                                    </connections>
-                                                </barButtonItem>
-                                                <barButtonItem style="plain" systemItem="flexibleSpace" id="xd5-2l-0q2"/>
-                                                <barButtonItem title="Reveal" id="aHu-Gs-3CQ">
-                                                    <connections>
-                                                        <action selector="revealTapped:" destination="hrg-iL-W9q" id="Ibm-on-WH2"/>
-                                                    </connections>
-                                                </barButtonItem>
-                                                <barButtonItem style="plain" systemItem="flexibleSpace" id="Iih-J0-EdL"/>
-                                                <barButtonItem title="Skip" id="gfz-d2-Fc2">
-                                                    <connections>
-                                                        <action selector="skipTapped:" destination="hrg-iL-W9q" id="M7m-E2-0ZB"/>
-                                                    </connections>
-                                                </barButtonItem>
-                                            </items>
-                                        </toolbar>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="hrg-iL-W9q" id="adq-OM-qLZ"/>
                             <outlet property="delegate" destination="hrg-iL-W9q" id="Ouz-fO-i3p"/>
                         </connections>
                     </tableView>
-                    <toolbarItems/>
+                    <toolbarItems>
+                        <barButtonItem systemItem="undo" id="pl5-Ky-xW4">
+                            <connections>
+                                <action selector="undoTapped:" destination="hrg-iL-W9q" id="0WW-7G-Vdm"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="xd5-2l-0q2"/>
+                        <barButtonItem title="Reveal" id="aHu-Gs-3CQ">
+                            <connections>
+                                <action selector="revealTapped:" destination="hrg-iL-W9q" id="Ibm-on-WH2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Iih-J0-EdL"/>
+                        <barButtonItem title="Skip" id="gfz-d2-Fc2">
+                            <connections>
+                                <action selector="skipTapped:" destination="hrg-iL-W9q" id="M7m-E2-0ZB"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="fm9-vT-LsV"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="noCardsLabel" destination="kpt-so-hcV" id="b7y-71-fif"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UL4-iq-leS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2238" y="1321"/>
+            <point key="canvasLocation" x="3079" y="1321"/>
         </scene>
         <!--Add Card-->
         <scene sceneID="DcU-52-sIk">
@@ -601,6 +618,13 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aW7-Wb-f2y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="uvG-F9-png">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem title="Item" id="ze9-G0-7GY"/>
+                    </items>
+                </toolbar>
             </objects>
             <point key="canvasLocation" x="3079" y="641"/>
         </scene>
@@ -638,7 +662,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ELo-VO-Dr7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3913" y="1119"/>
+            <point key="canvasLocation" x="4725" y="1119"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PDV-0K-Oqn">
@@ -658,8 +682,29 @@
             </objects>
             <point key="canvasLocation" x="1480" y="-234"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HgA-PN-ynz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="35c-hP-pt0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tgP-S5-9Qo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="009-wp-Hy2">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="hrg-iL-W9q" kind="relationship" relationship="rootViewController" id="83h-df-XIU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Im0-tP-Eow" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2238" y="1321"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MAB-B8-bS2"/>
+        <segue reference="wiG-3B-R8d"/>
     </inferredMetricsTieBreakers>
 </document>

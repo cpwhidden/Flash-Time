@@ -9,11 +9,29 @@
 import UIKit
 
 class ReviewTableViewController: UITableViewController {
+    @IBOutlet weak var noCardsLabel: UIView!
+    
     var group: Group!
     var cards: [Card]!
+    var currentIndex = 0
+    var revealToolbarItems: [UIBarButtonItem]?
+    var answerToolbarItems: [UIBarButtonItem]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        revealToolbarItems = navigationController?.toolbarItems as? [UIBarButtonItem]
+        answerToolbarItems = [
+            UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil),
+            UIBarButtonItem(title: "Reset", style: .Plain, target: self, action: "resetTapped:"),
+            UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil),
+            UIBarButtonItem(title: "Hard", style: .Plain, target: self, action: "hardTapped:"),
+            UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil),
+            UIBarButtonItem(title: "Good", style: .Plain, target: self, action: "goodTapped:"),
+            UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil),
+            UIBarButtonItem(title: "Easy", style: .Plain, target: self, action: "easyTapped:"),
+            UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        ]
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,35 +39,74 @@ class ReviewTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
-    }
-
 
     @IBAction func undoTapped(sender: UIBarButtonItem) {
     }
     
     @IBAction func revealTapped(sender: UIBarButtonItem) {
+        navigationController?.toolbar.items = answerToolbarItems
     }
     
     @IBAction func skipTapped(sender: UIBarButtonItem) {
     }
-
     
-    
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
-        return cell
+    func resetTapped(sender: UIBarButtonItem) {
+        navigationController?.toolbar.items = revealToolbarItems
     }
-    */
+    
+    func hardTapped(sender: UIBarButtonItem) {
+        navigationController?.toolbar.items = revealToolbarItems
+    }
+    
+    func goodTapped(sender: UIBarButtonItem) {
+        navigationController?.toolbar.items = revealToolbarItems
+    }
+    
+    func easyTapped(sender: UIBarButtonItem) {
+        navigationController?.toolbar.items = revealToolbarItems
+    }
+    
+    // MARK: - Table view data source
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if currentIndex >= cards.count {
+            noCardsLabel.hidden = false
+            return 0
+        } else {
+            noCardsLabel.hidden = true
+        }
+        if cards[currentIndex].imagePath != nil {
+            return 3
+        } else {
+            return 2
+        }
+    }
+
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            let cell = tableView.dequeueReusableCellWithIdentifier("Text", forIndexPath: indexPath) as! TextTableViewCell
+            cell.textView.text = cards[currentIndex].front
+            return cell
+        case 1:
+            if let imagePath = cards[currentIndex].imagePath {
+                let cell = tableView.dequeueReusableCellWithIdentifier("Image", forIndexPath: indexPath) as! ImageTableViewCell
+                cell.associatedImage.image = cards[currentIndex].getImage()
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCellWithIdentifier("Text", forIndexPath: indexPath) as! TextTableViewCell
+                cell.textView.text = cards[currentIndex].back
+                return cell
+            }
+        case 2:
+            let cell = tableView.dequeueReusableCellWithIdentifier("Text", forIndexPath: indexPath) as! TextTableViewCell
+            cell.textView.text = cards[currentIndex].back
+            return cell
+        default:
+            fatalError("Index for card cell out of range")
+        }
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
