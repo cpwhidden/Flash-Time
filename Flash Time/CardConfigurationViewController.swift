@@ -10,6 +10,7 @@ import UIKit
 
 class CardConfigurationViewController: UIViewController {
     @IBOutlet weak var configurationPicker: UIPickerView!
+    var configuration: Configuration!
 
     override func viewDidLoad() {
         super.viewDidLoad()

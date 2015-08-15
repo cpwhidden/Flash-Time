@@ -9,7 +9,11 @@
 import UIKit
 
 class AddCardTableViewController: UITableViewController {
+    @IBOutlet weak var doneButton: UIBarButtonItem!
     var group: Group!
+    var image: UIImage?
+    var imagePath: String?
+    var customConfiguration: Configuration?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,71 +32,77 @@ class AddCardTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
-    }
-
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
+        if image != nil {
+            return 2
+        } else {
+            return 3
+        }
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
-        return cell
+        switch indexPath.row {
+        case 0:
+            let cell = tableView.dequeueReusableCellWithIdentifier("Text", forIndexPath: indexPath) as! TextTableViewCell
+            cell.textView.text = "Front"
+            return cell
+        case 1:
+            if let image = image {
+                let cell = tableView.dequeueReusableCellWithIdentifier("Image", forIndexPath: indexPath) as! ImageTableViewCell
+                cell.associatedImage.image = image
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCellWithIdentifier("Text", forIndexPath: indexPath) as! TextTableViewCell
+                cell.textView.text = "Back"
+                return cell
+            }
+        case 2:
+            let cell = tableView.dequeueReusableCellWithIdentifier("Text", forIndexPath: indexPath) as! TextTableViewCell
+            cell.textView.text = "Front"
+            return cell
+        default:
+            fatalError("Index for card cell out of range")
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+    
+    @IBAction func cancelTapped(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    @IBAction func doneTapped(sender: UIBarButtonItem) {
+        let frontText = (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! TextTableViewCell).textView.text
+        let backIndex = (image != nil) ? 2 : 1
+        let backText = (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: backIndex, inSection: 0)) as! TextTableViewCell).textView.text
+        if count(frontText) > 0 {
+            let card = Card(front: frontText, back: backText, dueDate: NSDate(), imagePath: imagePath ?? nil, configuration: customConfiguration ?? group.defaultConfiguration)
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if let id = segue.identifier {
+            switch id {
+            case "ConfigureCard":
+                let dvc = (segue.destinationViewController as! UINavigationController).topViewController as! CardConfigurationViewController
+                dvc.configuration = group.defaultConfiguration
+            case "CaptureImage":
+                let dvc = (segue.destinationViewController as! UINavigationController).topViewController as! CaptureImageViewController
+                if let image = image {
+                    dvc.image = image
+                }
+                dvc.photoCompletionHandler = { image, imagePath in
+                    // TODO: Delete current image at imagePath if found
+                    self.image = image
+                    self.imagePath = imagePath
+                }
+            default:
+                break
+            }
+        }
     }
-    */
+    
 
 }

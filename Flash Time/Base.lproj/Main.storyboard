@@ -104,7 +104,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="rJ3-iV-uie" kind="show" identifier="AddCard" id="kPp-dL-Qd9"/>
+                                    <segue destination="rJ3-iV-uie" kind="presentation" identifier="AddCard" id="kPp-dL-Qd9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qV9-uz-c2H">
@@ -275,6 +275,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageView" destination="lRb-3I-AG2" id="12k-jr-spG"/>
                         <outlet property="searchBar" destination="OwJ-Ky-FGa" id="vcc-Pq-q8G"/>
                         <outlet property="searchDisplayController" destination="LOy-jz-cbG" id="h7f-fJ-4an"/>
                         <outlet property="segmentBarButton" destination="REK-L4-Wa6" id="GaY-Dr-zLu"/>
@@ -507,23 +508,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Image" rowHeight="200" id="p8Y-uQ-SgZ" customClass="ImageTableViewCell" customModule="Flash_Time" customModuleProvider="target">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p8Y-uQ-SgZ" id="Wy2-jU-bb0">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dWE-BT-rli">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="dWE-BT-rli" firstAttribute="leading" secondItem="Wy2-jU-bb0" secondAttribute="leading" id="EBA-Rq-8gI"/>
-                                        <constraint firstItem="dWE-BT-rli" firstAttribute="top" secondItem="Wy2-jU-bb0" secondAttribute="top" id="Iow-MN-2pa"/>
-                                        <constraint firstAttribute="trailing" secondItem="dWE-BT-rli" secondAttribute="trailing" id="RKo-td-5rE"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="dWE-BT-rli" secondAttribute="bottom" constant="-8.5" id="bfx-hG-s0I"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Text" rowHeight="200" id="qgX-SW-9Py" customClass="TextTableViewCell" customModule="Flash_Time" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qgX-SW-9Py" id="ex2-eA-YdU">
@@ -545,6 +529,23 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Image" rowHeight="200" id="p8Y-uQ-SgZ" customClass="ImageTableViewCell" customModule="Flash_Time" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p8Y-uQ-SgZ" id="Wy2-jU-bb0">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dWE-BT-rli">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="dWE-BT-rli" firstAttribute="leading" secondItem="Wy2-jU-bb0" secondAttribute="leading" id="EBA-Rq-8gI"/>
+                                        <constraint firstItem="dWE-BT-rli" firstAttribute="top" secondItem="Wy2-jU-bb0" secondAttribute="top" id="Iow-MN-2pa"/>
+                                        <constraint firstAttribute="trailing" secondItem="dWE-BT-rli" secondAttribute="trailing" id="RKo-td-5rE"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="dWE-BT-rli" secondAttribute="bottom" constant="-8.5" id="bfx-hG-s0I"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <sections/>
                         <connections>
@@ -552,18 +553,37 @@
                             <outlet property="delegate" destination="ZEZ-zD-tOs" id="l9b-ld-63j"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="lVg-NX-zNz">
-                        <barButtonItem key="leftBarButtonItem" title="Configuration" id="YPl-uD-hrA">
+                    <toolbarItems>
+                        <barButtonItem title="Configuration" id="YPl-uD-hrA">
                             <connections>
-                                <segue destination="hTV-96-2n6" kind="presentation" id="If7-Kw-wGf"/>
+                                <segue destination="hTV-96-2n6" kind="popoverPresentation" identifier="ConfigureCard" popoverAnchorBarButtonItem="YPl-uD-hrA" id="If7-Kw-wGf">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Image" id="ItI-MX-QNI">
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="76X-FY-b92"/>
+                        <barButtonItem title="Image" id="ItI-MX-QNI">
                             <connections>
-                                <segue destination="CnX-7d-4YB" kind="presentation" id="Lrq-8C-WpT"/>
+                                <segue destination="CnX-7d-4YB" kind="presentation" identifier="CaptureImage" id="Lrq-8C-WpT"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="lVg-NX-zNz">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="hn8-4u-xXN">
+                            <connections>
+                                <action selector="cancelTapped:" destination="ZEZ-zD-tOs" id="9RJ-Pb-ZFw"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="YFu-gO-3Jl">
+                            <connections>
+                                <action selector="doneTapped:" destination="ZEZ-zD-tOs" id="7tx-bn-G4G"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="doneButton" destination="YFu-gO-3Jl" id="2zM-Qn-GFv"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aW7-Wb-f2y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

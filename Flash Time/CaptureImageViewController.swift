@@ -12,10 +12,15 @@ class CaptureImageViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var segmentBarButton: UIBarButtonItem!
     @IBOutlet weak var segmentedPhotoControl: UISegmentedControl!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    var image: UIImage?
+    
+    var photoCompletionHandler: ((UIImage?, String?) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        imageView.image = image
         // Do any additional setup after loading the view.
     }
 
