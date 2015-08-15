@@ -75,8 +75,9 @@ class AddCardTableViewController: UITableViewController {
         let backIndex = (image != nil) ? 2 : 1
         let backText = (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: backIndex, inSection: 0)) as! TextTableViewCell).textView.text
         if count(frontText) > 0 {
-            let card = Card(front: frontText, back: backText, dueDate: NSDate(), imagePath: imagePath ?? nil, configuration: customConfiguration ?? group.defaultConfiguration)
+            let card = Card(front: frontText, back: backText, dueDate: NSDate(), imagePath: imagePath ?? nil, configuration: customConfiguration ?? group.defaultConfiguration, group: group)
         }
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - Navigation

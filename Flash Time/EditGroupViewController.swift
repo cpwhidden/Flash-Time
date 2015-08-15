@@ -19,6 +19,9 @@ class EditGroupViewController: UIViewController, UITextFieldDelegate, UIPickerVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         configurations = sharedContext.fetchAllOfEntity("Configuration") as! [Configuration]
         
         if let group = group {
@@ -26,7 +29,7 @@ class EditGroupViewController: UIViewController, UITextFieldDelegate, UIPickerVi
             let index = find(configurations, group.defaultConfiguration)!
             configurationPicker.selectRow(index, inComponent: 0, animated: true)
         }
-}
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

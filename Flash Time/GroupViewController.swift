@@ -53,6 +53,7 @@ class GroupViewController: UIViewController {
                 let dvc = (segue.destinationViewController as! UINavigationController).topViewController as! ReviewTableViewController
                 dvc.group = group
                 dvc.cards = cards
+                dvc.navigationItem.title = "Review - \(group.name)"
             default:
                 break
             }
