@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 @objc(Card)
 class Card: NSManagedObject {
@@ -37,5 +38,15 @@ class Card: NSManagedObject {
     
     convenience init(front: String, back: String, dueDate: NSDate, imagePath: String? = nil, configuration: Configuration) {
         self.init(front: front, back: back, dueDate: dueDate, imagePath: imagePath, configuration: configuration, context: sharedContext)
+    }
+    
+    func getImage() -> UIImage? {
+        if let imagePath = imagePath {
+            let docPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as! String
+            let fullPath = docPath + imagePath
+            return UIImage(contentsOfFile: fullPath)
+        } else {
+            return nil
+        }
     }
 }
