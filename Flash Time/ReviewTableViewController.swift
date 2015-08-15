@@ -16,6 +16,7 @@ class ReviewTableViewController: UITableViewController {
     var currentIndex = 0
     var revealToolbarItems: [UIBarButtonItem]?
     var answerToolbarItems: [UIBarButtonItem]?
+    var revealed = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,7 @@ class ReviewTableViewController: UITableViewController {
             UIBarButtonItem(title: "Easy", style: .Plain, target: self, action: "easyTapped:"),
             UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
         ]
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +46,9 @@ class ReviewTableViewController: UITableViewController {
     }
     
     @IBAction func revealTapped(sender: UIBarButtonItem) {
+        revealed = true
         navigationController?.toolbar.items = answerToolbarItems
+        tableView.reloadData()
     }
     
     @IBAction func skipTapped(sender: UIBarButtonItem) {
@@ -52,18 +56,26 @@ class ReviewTableViewController: UITableViewController {
     
     func resetTapped(sender: UIBarButtonItem) {
         navigationController?.toolbar.items = revealToolbarItems
+        let answer = Answer(card: cards[currentIndex], correctness: 0, date: NSDate())
+        ++currentIndex
     }
     
     func hardTapped(sender: UIBarButtonItem) {
         navigationController?.toolbar.items = revealToolbarItems
+        let answer = Answer(card: cards[currentIndex], correctness: 1, date: NSDate())
+        ++currentIndex
     }
     
     func goodTapped(sender: UIBarButtonItem) {
         navigationController?.toolbar.items = revealToolbarItems
+        let answer = Answer(card: cards[currentIndex], correctness: 2, date: NSDate())
+        ++currentIndex
     }
     
     func easyTapped(sender: UIBarButtonItem) {
         navigationController?.toolbar.items = revealToolbarItems
+        let answer = Answer(card: cards[currentIndex], correctness: 3, date: NSDate())
+        ++currentIndex
     }
     
     // MARK: - Table view data source
@@ -71,14 +83,20 @@ class ReviewTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if currentIndex >= cards.count {
             noCardsLabel.hidden = false
+            for item in navigationController?.toolbar.items as! [UIBarButtonItem] {
+                item.enabled = false
+            }
             return 0
         } else {
             noCardsLabel.hidden = true
+            for item in navigationController?.toolbar.items as! [UIBarButtonItem] {
+                item.enabled = true
+            }
         }
         if cards[currentIndex].imagePath != nil {
-            return 3
+            return revealed ? 3 : 2
         } else {
-            return 2
+            return revealed ? 2 : 1
         }
     }
 
@@ -93,10 +111,12 @@ class ReviewTableViewController: UITableViewController {
                 let cell = tableView.dequeueReusableCellWithIdentifier("Image", forIndexPath: indexPath) as! ImageTableViewCell
                 cell.associatedImage.image = cards[currentIndex].getImage()
                 return cell
-            } else {
+            } else if revealed {
                 let cell = tableView.dequeueReusableCellWithIdentifier("Text", forIndexPath: indexPath) as! TextTableViewCell
                 cell.textView.text = cards[currentIndex].back
                 return cell
+            } else {
+                fatalError("Index for card cell out of range")
             }
         case 2:
             let cell = tableView.dequeueReusableCellWithIdentifier("Text", forIndexPath: indexPath) as! TextTableViewCell
