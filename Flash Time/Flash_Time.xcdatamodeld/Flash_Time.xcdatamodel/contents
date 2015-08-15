@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Answer" representedClassName="Answer" syncable="YES">
-        <attribute name="correctness" attributeType="Integer 64" minValueString="0" maxValueString="4" defaultValueString="0" syncable="YES"/>
+        <attribute name="correctness" attributeType="Integer 64" minValueString="0" maxValueString="3" defaultValueString="0" syncable="YES"/>
         <attribute name="date" attributeType="Date" indexed="YES" syncable="YES"/>
         <relationship name="card" maxCount="1" deletionRule="Nullify" destinationEntity="Card" inverseName="answer" inverseEntity="Card" syncable="YES"/>
     </entity>
