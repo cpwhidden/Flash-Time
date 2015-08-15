@@ -198,8 +198,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PWl-gn-Z4P">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3On-TC-eIU"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="2rb-oQ-eoB"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3On-TC-eIU">
+                            <connections>
+                                <action selector="cancelTapped:" destination="9i9-d1-zHj" id="BtL-aw-d7y"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="2rb-oQ-eoB">
+                            <connections>
+                                <action selector="doneTapped:" destination="9i9-d1-zHj" id="Zti-Xg-FSZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="configurationPicker" destination="mkB-QP-wch" id="l9K-xS-KYF"/>
