@@ -88,7 +88,7 @@ class AddCardTableViewController: UITableViewController {
             switch id {
             case "ConfigureCard":
                 let dvc = (segue.destinationViewController as! UINavigationController).topViewController as! CardConfigurationViewController
-                dvc.configuration = group.defaultConfiguration
+                dvc.configuration = customConfiguration ?? group.defaultConfiguration
                 dvc.configurationCompletionHandler = { configuration in
                     self.customConfiguration = configuration
                 }

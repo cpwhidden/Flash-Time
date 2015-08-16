@@ -184,6 +184,10 @@
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkB-QP-wch">
                                 <rect key="frame" x="0.0" y="198" width="600" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9i9-d1-zHj" id="JBg-us-q1u"/>
+                                    <outlet property="delegate" destination="9i9-d1-zHj" id="g4V-md-ov3"/>
+                                </connections>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -624,13 +628,6 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aW7-Wb-f2y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="uvG-F9-png">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <items>
-                        <barButtonItem title="Item" id="ze9-G0-7GY"/>
-                    </items>
-                </toolbar>
             </objects>
             <point key="canvasLocation" x="3079" y="641"/>
         </scene>

@@ -19,6 +19,8 @@ class CardConfigurationViewController: UIViewController, UIPickerViewDataSource,
         super.viewDidLoad()
 
         configurations = sharedContext.fetchAllOfEntity("Configuration") as! [Configuration]
+        let index = find(configurations, configuration)!
+        configurationPicker.selectRow(index, inComponent: 0, animated: true)
         // Do any additional setup after loading the view.
     }
 
