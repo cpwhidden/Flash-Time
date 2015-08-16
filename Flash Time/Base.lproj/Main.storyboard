@@ -233,16 +233,22 @@
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search Flickr" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OwJ-Ky-FGa">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="a7v-ZF-u6u"/>
+                                </constraints>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="XRi-LR-sXe" id="Msh-CN-zpW"/>
                                 </connections>
                             </searchBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lRb-3I-AG2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lRb-3I-AG2">
                                 <rect key="frame" x="0.0" y="108" width="600" height="448"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6f-3B-455">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="CDu-LQ-DqC"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem enabled="NO" systemItem="camera" id="MnD-RP-nj6">
                                         <connections>
@@ -250,10 +256,28 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="8ll-ll-Rmr"/>
-                                    <barButtonItem enabled="NO" systemItem="rewind" id="fiG-hH-3iX"/>
-                                    <barButtonItem enabled="NO" systemItem="fastForward" id="itR-WO-hjh"/>
+                                    <barButtonItem enabled="NO" systemItem="rewind" id="fiG-hH-3iX">
+                                        <connections>
+                                            <action selector="getPreviousPhoto" destination="XRi-LR-sXe" id="gXy-ou-MXe"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="mfd-7N-0ei"/>
+                                    <barButtonItem enabled="NO" systemItem="fastForward" id="itR-WO-hjh">
+                                        <connections>
+                                            <action selector="getNextPhoto" destination="XRi-LR-sXe" id="Kxw-tQ-lg6"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="JwF-Ev-M9I"/>
+                                    <barButtonItem enabled="NO" systemItem="trash" id="ZAc-EL-xf6">
+                                        <connections>
+                                            <action selector="deletePhoto:" destination="XRi-LR-sXe" id="XA6-wv-vbJ"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Q1i-Kp-Fr7">
+                                <rect key="frame" x="290" y="322" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -266,7 +290,9 @@
                             <constraint firstItem="OwJ-Ky-FGa" firstAttribute="trailing" secondItem="lRb-3I-AG2" secondAttribute="trailing" id="VMd-lT-914"/>
                             <constraint firstAttribute="trailing" secondItem="p6f-3B-455" secondAttribute="trailing" id="ck3-d4-JiH"/>
                             <constraint firstItem="lRb-3I-AG2" firstAttribute="trailing" secondItem="p6f-3B-455" secondAttribute="trailing" id="g1a-45-vcB"/>
+                            <constraint firstItem="Q1i-Kp-Fr7" firstAttribute="centerX" secondItem="lRb-3I-AG2" secondAttribute="centerX" id="mn7-LA-zUE"/>
                             <constraint firstItem="p6f-3B-455" firstAttribute="leading" secondItem="wJc-D2-oSH" secondAttribute="leading" id="oQc-QJ-VrN"/>
+                            <constraint firstItem="Q1i-Kp-Fr7" firstAttribute="centerY" secondItem="lRb-3I-AG2" secondAttribute="centerY" id="pRP-Uw-ZtE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="VAN-52-Lfn">
@@ -275,17 +301,20 @@
                                 <action selector="cancelTapped:" destination="XRi-LR-sXe" id="VpJ-9M-ibU"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="3Uf-AK-EMg">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="3Uf-AK-EMg">
                             <connections>
                                 <action selector="doneTapped:" destination="XRi-LR-sXe" id="SuJ-Ds-vPd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="deleteButton" destination="ZAc-EL-xf6" id="f9v-h2-W98"/>
+                        <outlet property="doneButton" destination="3Uf-AK-EMg" id="9XA-ld-ZVG"/>
                         <outlet property="imageView" destination="lRb-3I-AG2" id="12k-jr-spG"/>
                         <outlet property="nextButton" destination="itR-WO-hjh" id="xhy-Rq-ySM"/>
                         <outlet property="pickerButton" destination="MnD-RP-nj6" id="LRI-lL-m7L"/>
                         <outlet property="previousButton" destination="fiG-hH-3iX" id="8Uh-47-DEW"/>
+                        <outlet property="searchActivityIndicator" destination="Q1i-Kp-Fr7" id="cUi-hg-3ng"/>
                         <outlet property="searchBar" destination="OwJ-Ky-FGa" id="vcc-Pq-q8G"/>
                     </connections>
                 </viewController>

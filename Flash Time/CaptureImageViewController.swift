@@ -14,17 +14,26 @@ class CaptureImageViewController: UIViewController, UISearchBarDelegate, UIImage
     @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var pickerButton: UIBarButtonItem!
-    
+    @IBOutlet weak var deleteButton: UIBarButtonItem!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+    @IBOutlet weak var searchActivityIndicator: UIActivityIndicatorView!
+
     lazy var picker = UIImagePickerController()
     var startingImage: UIImage?
     var photoCompletionHandler: ((UIImage?) -> Void)?
     var urls: [NSURL]?
     var urlIndex = 0
+    var isSearching = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.image = startingImage
         picker.delegate = self
+        searchActivityIndicator.hidden = true
+        
+        if let startingImage = startingImage {
+            deleteButton.enabled = true
+        }
         // Do any additional setup after loading the view.
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
             pickerButton.enabled = true
@@ -46,65 +55,117 @@ class CaptureImageViewController: UIViewController, UISearchBarDelegate, UIImage
     }
     
     @IBAction func getUserPhoto(sender: UIBarButtonItem) {
-        searchBar.text = ""
-        previousButton.enabled = false
-        nextButton.enabled = false
         presentViewController(picker, animated: true, completion: nil)
     }
     
-    func getPreviousPhoto() {
+    @IBAction func getPreviousPhoto() {
+        previousButton.enabled = false
+        nextButton.enabled = false
+        deleteButton.enabled = false
+        doneButton.enabled = false
         if urlIndex > 0 {
-//            downloadImageForURL(self.urls[--urlIndex]) { image, error in
-//                if error == nil && urls != nil {
-//                    self.imageView.image = image
-//                }
-//            }
-            nextButton.enabled = true
+            imageView.image = nil
+            searchActivityIndicator.startAnimating()
+            searchActivityIndicator.hidden = false
+            FlickrClient.sharedClient.downloadImageForURL(self.urls![--urlIndex]) { image, error in
+                if error == nil && self.urls != nil {
+                    self.imageView.image = image
+                    self.deleteButton.enabled = true
+                    if self.urlIndex > 0 {
+                        self.previousButton.enabled = true
+                    }
+                    self.nextButton.enabled = true
+                    self.doneButton.enabled = true
+                }
+                self.searchActivityIndicator.stopAnimating()
+                self.searchActivityIndicator.hidden = true
+            }
         } else {
             previousButton.enabled = false
         }
     }
     
-    func getNextPhoto() {
+    @IBAction func getNextPhoto() {
+        previousButton.enabled = false
+        nextButton.enabled = false
+        deleteButton.enabled = false
+        doneButton.enabled = false
         if urlIndex < urls!.count - 1 {
-//            downloadImageForURL(self.urls[++urlIndex]) { image, error in
-//                if error == nil && urls != nil {
-//                    self.imageView.image = image
-//                }
-//            }
-            previousButton.enabled = true
+            imageView.image = nil
+            searchActivityIndicator.startAnimating()
+            searchActivityIndicator.hidden = false
+            FlickrClient.sharedClient.downloadImageForURL(self.urls![++urlIndex]) { image, error in
+                if error == nil && self.urls != nil {
+                    self.imageView.image = image
+                    self.deleteButton.enabled = true
+                    if self.urlIndex < self.urls!.count - 1 {
+                        self.nextButton.enabled = true
+                    }
+                    self.previousButton.enabled = true
+                    self.doneButton.enabled = true
+                }
+                self.searchActivityIndicator.stopAnimating()
+                self.searchActivityIndicator.hidden = true
+            }
         } else {
             nextButton.enabled = false
         }
     }
     
+    @IBAction func deletePhoto(sender: UIBarButtonItem) {
+        imageView.image = nil
+        deleteButton.enabled = false
+        doneButton.enabled = true
+    }
+    
+    
     // MARK: Image Picker Controller Delegate
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        searchBar.text = ""
+        previousButton.enabled = false
+        nextButton.enabled = false
+        deleteButton.enabled = true
         imageView.image = image
+        doneButton.enabled = true
     }
 
     // MARK: Search Bar Delegate
     
+    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+        return !isSearching
+    }
+    
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         if count(searchBar.text) > 0 {
-//            resumedTaskForURLsForKeyword(searchBar.text) { urls, error in
-//                if error == nil && urls != nil {
-//                    self.urls = urls
-//                    previousButton.enabled = false
-//                    if count(urls) > 0 {
-//                        downloadImageForURL(self.urls[0]) { image, error in
-//                            if error == nil && image != nil {
-//                                self.imageView.image = image
-//                                  self.urlIndex = 0
-//                            }
-//                        }
-//                    }
-//                    if count(urls) > 1 {
-//                        nextButton.enabled = true
-//                    }
-//                }
-//            }
+            isSearching = true
+            imageView.image = nil
+            searchActivityIndicator.startAnimating()
+            searchActivityIndicator.hidden = false
+            FlickrClient.sharedClient.resumedTaskForURLsForKeywordSearch(searchBar.text) { urls, error in
+                self.isSearching = false
+                if error == nil && urls != nil {
+                    self.urls = urls
+                    self.previousButton.enabled = false
+                    if count(urls!) > 0 {
+                        FlickrClient.sharedClient.downloadImageForURL(self.urls![0]) { image, error in
+                            if error == nil && image != nil {
+                                self.imageView.image = image
+                                self.urlIndex = 0
+                                self.deleteButton.enabled = true
+                            }
+                            self.searchActivityIndicator.stopAnimating()
+                            self.searchActivityIndicator.hidden = true
+                        }
+                    } else {
+                        self.searchActivityIndicator.stopAnimating()
+                        self.searchActivityIndicator.hidden = true
+                    }
+                    if count(urls!) > 1 {
+                        self.nextButton.enabled = true
+                    }
+                }
+            }
         }
         searchBar.resignFirstResponder()
     }
