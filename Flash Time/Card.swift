@@ -16,6 +16,7 @@ class Card: NSManagedObject {
     @NSManaged var front: String
     @NSManaged var back: String
     @NSManaged var dueDate: NSDate
+    @NSManaged var interval: NSNumber
     @NSManaged var imagePath: String?
     @NSManaged var id: String
     @NSManaged var answer: NSOrderedSet
@@ -27,7 +28,7 @@ class Card: NSManagedObject {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
     }
     
-    init(front: String, back: String, dueDate: NSDate, imagePath: String? = nil, configuration: Configuration, group: Group, context: NSManagedObjectContext) {
+    init(front: String, back: String, dueDate: NSDate, interval: NSNumber, imagePath: String? = nil, configuration: Configuration, group: Group, context: NSManagedObjectContext) {
         let entity = NSEntityDescription.entityForName("Card", inManagedObjectContext: context)!
         super.init(entity: entity, insertIntoManagedObjectContext: context)
         self.front = front
@@ -39,8 +40,8 @@ class Card: NSManagedObject {
         sharedContext.save(nil)
     }
     
-    convenience init(front: String, back: String, dueDate: NSDate, imagePath: String? = nil, configuration: Configuration, group: Group) {
-        self.init(front: front, back: back, dueDate: dueDate, imagePath: imagePath, configuration: configuration, group: group, context: sharedContext)
+    convenience init(front: String, back: String, dueDate: NSDate, interval: NSNumber, imagePath: String? = nil, configuration: Configuration, group: Group) {
+        self.init(front: front, back: back, dueDate: dueDate, interval: interval, imagePath: imagePath, configuration: configuration, group: group, context: sharedContext)
     }
     
     func getImage() -> UIImage? {

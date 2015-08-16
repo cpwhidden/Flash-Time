@@ -11,6 +11,7 @@
         <attribute name="front" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imagePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="interval" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="answers" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Answer" inverseName="card" inverseEntity="Answer" syncable="YES"/>
         <relationship name="configuration" maxCount="1" deletionRule="Nullify" destinationEntity="Configuration" inverseName="cards" inverseEntity="Configuration" syncable="YES"/>
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="cards" inverseEntity="Group" syncable="YES"/>
@@ -33,7 +34,7 @@
     </entity>
     <elements>
         <element name="Answer" positionX="-54" positionY="18" width="128" height="90"/>
-        <element name="Card" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="Card" positionX="-63" positionY="-18" width="128" height="180"/>
         <element name="Configuration" positionX="-36" positionY="45" width="128" height="180"/>
         <element name="Group" positionX="-18" positionY="99" width="128" height="90"/>
     </elements>
