@@ -106,5 +106,10 @@ class CaptureImageViewController: UIViewController, UISearchBarDelegate, UIImage
 //                }
 //            }
         }
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }

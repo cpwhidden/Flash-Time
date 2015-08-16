@@ -231,7 +231,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search Flickr" translatesAutoresizingMaskIntoConstraints="NO" id="OwJ-Ky-FGa">
+                            <searchBar contentMode="redraw" placeholder="Search Flickr" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OwJ-Ky-FGa">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -287,19 +287,9 @@
                         <outlet property="pickerButton" destination="MnD-RP-nj6" id="LRI-lL-m7L"/>
                         <outlet property="previousButton" destination="fiG-hH-3iX" id="8Uh-47-DEW"/>
                         <outlet property="searchBar" destination="OwJ-Ky-FGa" id="vcc-Pq-q8G"/>
-                        <outlet property="searchDisplayController" destination="LOy-jz-cbG" id="h7f-fJ-4an"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ad3-1b-bLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="LOy-jz-cbG">
-                    <connections>
-                        <outlet property="delegate" destination="XRi-LR-sXe" id="8Oj-B3-NsT"/>
-                        <outlet property="searchBar" destination="OwJ-Ky-FGa" id="1R4-xw-aai"/>
-                        <outlet property="searchContentsController" destination="XRi-LR-sXe" id="BKi-3N-ig9"/>
-                        <outlet property="searchResultsDataSource" destination="XRi-LR-sXe" id="dot-V7-fAg"/>
-                        <outlet property="searchResultsDelegate" destination="XRi-LR-sXe" id="rFe-Pp-QMK"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="4667" y="1119"/>
         </scene>
