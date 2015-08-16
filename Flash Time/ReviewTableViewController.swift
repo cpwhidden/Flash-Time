@@ -59,24 +59,32 @@ class ReviewTableViewController: UITableViewController {
     }
     
     func resetTapped(sender: UIBarButtonItem) {
-        answeredWithCorrectness(0)
+        revealed = false
+        navigationController?.toolbar.items = revealToolbarItems
+        cards[currentIndex].interval = cards[currentIndex].configuration.restartInterval
+        cards[currentIndex].dueDate = NSDate(timeIntervalSinceNow: cards[currentIndex].interval.doubleValue)
+        let answer = Answer(card: cards[currentIndex], correctness: 0, date: NSDate())
+        ++currentIndex
+        tableView.reloadData()
     }
     
     func hardTapped(sender: UIBarButtonItem) {
-        answeredWithCorrectness(1)
+        answeredWithCorrectness(0, multiplier: cards[currentIndex].configuration.hardMultiplier)
     }
     
     func goodTapped(sender: UIBarButtonItem) {
-        answeredWithCorrectness(2)
+        answeredWithCorrectness(0, multiplier: cards[currentIndex].configuration.standardMultiplier)
     }
     
     func easyTapped(sender: UIBarButtonItem) {
-        answeredWithCorrectness(3)
+        answeredWithCorrectness(0, multiplier: cards[currentIndex].configuration.easyMultiplier)
     }
     
-    func answeredWithCorrectness(correctness: Int) {
+    func answeredWithCorrectness(correctness: Int, multiplier: NSNumber) {
         revealed = false
         navigationController?.toolbar.items = revealToolbarItems
+        cards[currentIndex].interval = Int(cards[currentIndex].interval.doubleValue * (1 + multiplier.doubleValue / 100))
+        cards[currentIndex].dueDate = NSDate(timeIntervalSinceNow: cards[currentIndex].interval.doubleValue)
         let answer = Answer(card: cards[currentIndex], correctness: correctness, date: NSDate())
         ++currentIndex
         tableView.reloadData()
