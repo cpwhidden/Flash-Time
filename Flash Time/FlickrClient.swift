@@ -65,7 +65,6 @@ class FlickrClient {
     }
     
     func downloadImageForURL(url: NSURL, completionHandler: (image: UIImage?, error: NSError?)->Void) {
-        println("Downloading \(url)")
         let request = NSURLRequest(URL: url)
         let task = NSURLSession.sharedSession().downloadTaskWithRequest(request) { url, response, error in
             if let error = error {
