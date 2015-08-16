@@ -21,7 +21,11 @@ class ReviewTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        revealToolbarItems = navigationController?.toolbarItems as? [UIBarButtonItem]
+        revealToolbarItems = [
+            UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil),
+            UIBarButtonItem(title: "Reveal", style: .Plain, target: self, action: "revealTapped:"),
+            UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        ]
         answerToolbarItems = [
             UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil),
             UIBarButtonItem(title: "Reset", style: .Plain, target: self, action: "resetTapped:"),
@@ -55,27 +59,27 @@ class ReviewTableViewController: UITableViewController {
     }
     
     func resetTapped(sender: UIBarButtonItem) {
-        navigationController?.toolbar.items = revealToolbarItems
-        let answer = Answer(card: cards[currentIndex], correctness: 0, date: NSDate())
-        ++currentIndex
+        answeredWithCorrectness(0)
     }
     
     func hardTapped(sender: UIBarButtonItem) {
-        navigationController?.toolbar.items = revealToolbarItems
-        let answer = Answer(card: cards[currentIndex], correctness: 1, date: NSDate())
-        ++currentIndex
+        answeredWithCorrectness(1)
     }
     
     func goodTapped(sender: UIBarButtonItem) {
-        navigationController?.toolbar.items = revealToolbarItems
-        let answer = Answer(card: cards[currentIndex], correctness: 2, date: NSDate())
-        ++currentIndex
+        answeredWithCorrectness(2)
     }
     
     func easyTapped(sender: UIBarButtonItem) {
+        answeredWithCorrectness(3)
+    }
+    
+    func answeredWithCorrectness(correctness: Int) {
+        revealed = false
         navigationController?.toolbar.items = revealToolbarItems
-        let answer = Answer(card: cards[currentIndex], correctness: 3, date: NSDate())
+        let answer = Answer(card: cards[currentIndex], correctness: correctness, date: NSDate())
         ++currentIndex
+        tableView.reloadData()
     }
     
     // MARK: - Table view data source
