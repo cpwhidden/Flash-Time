@@ -34,6 +34,7 @@ class Card: NSManagedObject {
         self.front = front
         self.back = back
         self.dueDate = dueDate
+        self.interval = interval
         self.imagePath = imagePath
         self.configuration = configuration
         self.group = group
