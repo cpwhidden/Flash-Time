@@ -54,4 +54,12 @@ class Card: NSManagedObject {
             return nil
         }
     }
+    
+    func deleteImage() {
+        if let imagePath = imagePath {
+            let docPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as! String
+            let fullPath = docPath + imagePath
+            NSFileManager.defaultManager().removeItemAtPath(fullPath, error: nil)
+        }
+    }
 }
