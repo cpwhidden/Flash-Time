@@ -154,6 +154,7 @@ class CaptureImageViewController: UIViewController, UISearchBarDelegate, UIImage
                                 self.urlIndex = 0
                                 self.deleteButton.enabled = true
                             }
+                            self.doneButton.enabled = true
                             self.searchActivityIndicator.stopAnimating()
                             self.searchActivityIndicator.hidden = true
                         }
