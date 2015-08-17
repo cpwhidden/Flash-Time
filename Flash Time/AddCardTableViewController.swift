@@ -8,12 +8,14 @@
 
 import UIKit
 
-class AddCardTableViewController: UITableViewController {
+class AddCardTableViewController: UITableViewController, UITextViewDelegate {
     @IBOutlet weak var doneButton: UIBarButtonItem!
     var group: Group!
     var image: UIImage?
     var imagePath: String?
     var customConfiguration: Configuration?
+    var frontText = "Front"
+    var backText = "Back"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +47,7 @@ class AddCardTableViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCellWithIdentifier("Text", forIndexPath: indexPath) as! TextTableViewCell
-            cell.textView.text = "Front"
+            cell.textView.text = frontText
             return cell
         case 1:
             if let image = image {
@@ -54,12 +56,12 @@ class AddCardTableViewController: UITableViewController {
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCellWithIdentifier("Text", forIndexPath: indexPath) as! TextTableViewCell
-                cell.textView.text = "Back"
+                cell.textView.text = backText
                 return cell
             }
         case 2:
             let cell = tableView.dequeueReusableCellWithIdentifier("Text", forIndexPath: indexPath) as! TextTableViewCell
-            cell.textView.text = "Back"
+            cell.textView.text = backText
             return cell
         default:
             fatalError("Index for card cell out of range")
@@ -120,5 +122,20 @@ class AddCardTableViewController: UITableViewController {
         }
     }
     
+    // MARK: - Text View Delegate
+    
+    func textViewDidChange(textView: UITextView) {
+        frontText = (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! TextTableViewCell).textView.text
+        let backIndex = (image != nil) ? 2 : 1
+        backText = (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: backIndex, inSection: 0)) as! TextTableViewCell).textView.text
+    }
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        textView.becomeFirstResponder()
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        textView.resignFirstResponder()
+    }
 
 }
