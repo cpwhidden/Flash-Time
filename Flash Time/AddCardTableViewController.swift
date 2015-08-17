@@ -10,6 +10,8 @@ import UIKit
 
 class AddCardTableViewController: UITableViewController, UITextViewDelegate {
     @IBOutlet weak var doneButton: UIBarButtonItem!
+    @IBOutlet var tapRecognizer: UITapGestureRecognizer!
+    
     var group: Group!
     var image: UIImage?
     var imagePath: String?
@@ -19,6 +21,9 @@ class AddCardTableViewController: UITableViewController, UITextViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.addGestureRecognizer(tapRecognizer)
+        tapRecognizer.addTarget(self, action: "handleTap:")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -29,7 +34,12 @@ class AddCardTableViewController: UITableViewController, UITextViewDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
         // Dispose of any resources that can be recreated.
+    }
+    
+    func handleTap(sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
 
     // MARK: - Table view data source

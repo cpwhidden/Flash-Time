@@ -75,6 +75,10 @@ class EditGroupViewController: UIViewController, UITextFieldDelegate, UIPickerVi
         return configurations[row].name
     }
     
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.view.endEditing(true)
+    }
+    
     /*
     // MARK: - Navigation
 
