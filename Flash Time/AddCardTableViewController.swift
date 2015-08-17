@@ -14,8 +14,8 @@ class AddCardTableViewController: UITableViewController, UITextViewDelegate {
     var image: UIImage?
     var imagePath: String?
     var customConfiguration: Configuration?
-    var frontText = "Front"
-    var backText = "Back"
+    var frontText = "Front (the question)"
+    var backText = "Back (the answer)"
 
     override func viewDidLoad() {
         super.viewDidLoad()

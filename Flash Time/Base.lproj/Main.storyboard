@@ -14,11 +14,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="p66-a1-7Jn">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="130" width="600" height="80"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No groups yet.  Click the + to start a new one." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKA-8S-7uh">
-                                    <rect key="frame" x="124" y="11.5" width="353" height="20.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKA-8S-7uh">
+                                    <rect key="frame" x="93" y="12" width="415" height="55"/>
+                                    <string key="text">No flash card groups yet. Click the + to start studying a new group.
+</string>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -27,7 +29,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iKA-8S-7uh" secondAttribute="trailing" id="ENr-jz-KhJ"/>
-                                <constraint firstAttribute="centerY" secondItem="iKA-8S-7uh" secondAttribute="centerY" constant="0.5" id="LYf-VE-XTY"/>
+                                <constraint firstAttribute="centerY" secondItem="iKA-8S-7uh" secondAttribute="centerY" constant="1" id="LYf-VE-XTY"/>
                                 <constraint firstItem="iKA-8S-7uh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="p66-a1-7Jn" secondAttribute="leading" id="ScI-9v-eiZ"/>
                                 <constraint firstAttribute="centerX" secondItem="iKA-8S-7uh" secondAttribute="centerX" constant="-0.5" id="dJu-nc-fef"/>
                             </constraints>
@@ -172,31 +174,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configuration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxX-Zd-tQ7">
-                                <rect key="frame" x="248" y="136" width="104" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="104" id="XYV-ks-dO7"/>
-                                    <constraint firstAttribute="height" constant="21" id="vSf-ag-aKe"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkB-QP-wch">
-                                <rect key="frame" x="0.0" y="198" width="600" height="162"/>
+                                <rect key="frame" x="0.0" y="238" width="600" height="162"/>
                                 <connections>
                                     <outlet property="dataSource" destination="9i9-d1-zHj" id="JBg-us-q1u"/>
                                     <outlet property="delegate" destination="9i9-d1-zHj" id="g4V-md-ov3"/>
                                 </connections>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxX-Zd-tQ7">
+                                <rect key="frame" x="198" y="141" width="203" height="61"/>
+                                <string key="text">Configuration
+(Defines for this card how
+quickly it will become due)</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fxX-Zd-tQ7" firstAttribute="top" secondItem="tsa-Uy-l6j" secondAttribute="bottom" constant="72" id="67J-KD-cC0"/>
-                            <constraint firstItem="mkB-QP-wch" firstAttribute="centerX" secondItem="fxX-Zd-tQ7" secondAttribute="centerX" id="8DF-kb-k2v"/>
-                            <constraint firstItem="mkB-QP-wch" firstAttribute="top" secondItem="fxX-Zd-tQ7" secondAttribute="bottom" constant="41" id="BcI-Eh-fh7"/>
-                            <constraint firstItem="mkB-QP-wch" firstAttribute="leading" secondItem="FZe-y9-pTZ" secondAttribute="leading" id="E5x-k6-FpZ"/>
-                            <constraint firstAttribute="trailing" secondItem="mkB-QP-wch" secondAttribute="trailing" id="lfj-Mh-7pw"/>
+                            <constraint firstItem="mkB-QP-wch" firstAttribute="leading" secondItem="FZe-y9-pTZ" secondAttribute="leading" id="6wY-Mc-Ate"/>
+                            <constraint firstItem="mkB-QP-wch" firstAttribute="top" secondItem="fxX-Zd-tQ7" secondAttribute="bottom" constant="36" id="JZO-8G-t8f"/>
+                            <constraint firstAttribute="trailing" secondItem="mkB-QP-wch" secondAttribute="trailing" id="MmE-dA-78T"/>
+                            <constraint firstAttribute="centerX" secondItem="fxX-Zd-tQ7" secondAttribute="centerX" constant="0.5" id="OL3-nB-yxT"/>
+                            <constraint firstItem="fxX-Zd-tQ7" firstAttribute="top" secondItem="tsa-Uy-l6j" secondAttribute="bottom" constant="77" id="b2K-5y-PwG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PWl-gn-Z4P">
@@ -334,7 +335,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y5l-eL-WUQ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y5l-eL-WUQ">
                                 <rect key="frame" x="109" y="147" width="379" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -343,27 +344,30 @@
                                 </connections>
                             </textField>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7i5-ag-iZM">
-                                <rect key="frame" x="0.0" y="284" width="600" height="162"/>
+                                <rect key="frame" x="0.0" y="316" width="600" height="162"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Fax-mn-LBN" id="LZF-II-SHR"/>
                                     <outlet property="delegate" destination="Fax-mn-LBN" id="sm3-tw-SSQ"/>
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCt-Tx-Lj6">
-                                <rect key="frame" x="272" y="93" width="46" height="21"/>
+                                <rect key="frame" x="275" y="107" width="46" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="4zk-pJ-G8f"/>
-                                    <constraint firstAttribute="width" constant="46" id="g1n-Ao-Oj3"/>
+                                    <constraint firstAttribute="height" constant="21" id="7ZL-DZ-thA"/>
+                                    <constraint firstAttribute="width" constant="46" id="KsI-lI-yQh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Configuration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbO-Nw-uMS">
-                                <rect key="frame" x="219" y="249" width="163" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbO-Nw-uMS">
+                                <rect key="frame" x="109" y="224" width="398" height="84"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="xXz-MM-AAz"/>
+                                    <constraint firstAttribute="height" constant="84" id="NBC-PL-P06"/>
                                 </constraints>
+                                <string key="text">Default Configuration
+(Defines how quickly 
+cards become due)</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -371,16 +375,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LCt-Tx-Lj6" firstAttribute="centerX" secondItem="y5l-eL-WUQ" secondAttribute="centerX" constant="-3.5" id="6SI-Ai-Chq"/>
-                            <constraint firstItem="7i5-ag-iZM" firstAttribute="top" secondItem="gbO-Nw-uMS" secondAttribute="bottom" constant="14" id="DXg-BA-7HS"/>
-                            <constraint firstItem="y5l-eL-WUQ" firstAttribute="leading" secondItem="QeX-Xb-oJc" secondAttribute="leadingMargin" constant="93" id="LFP-kn-9Ks"/>
-                            <constraint firstAttribute="centerX" secondItem="gbO-Nw-uMS" secondAttribute="centerX" constant="-0.5" id="NUG-uS-LFh"/>
-                            <constraint firstItem="LCt-Tx-Lj6" firstAttribute="top" secondItem="EVL-uv-x6a" secondAttribute="bottom" constant="29" id="PN5-GQ-5d6"/>
-                            <constraint firstAttribute="trailing" secondItem="7i5-ag-iZM" secondAttribute="trailing" id="f0t-Cw-jVK"/>
-                            <constraint firstItem="gbO-Nw-uMS" firstAttribute="top" secondItem="y5l-eL-WUQ" secondAttribute="bottom" constant="72" id="jPN-MY-Jco"/>
-                            <constraint firstItem="7i5-ag-iZM" firstAttribute="leading" secondItem="QeX-Xb-oJc" secondAttribute="leading" id="jsV-wz-RGa"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="y5l-eL-WUQ" secondAttribute="trailing" constant="96" id="she-vL-KfZ"/>
-                            <constraint firstItem="y5l-eL-WUQ" firstAttribute="top" secondItem="LCt-Tx-Lj6" secondAttribute="bottom" constant="33" id="wxZ-Kb-YSL"/>
+                            <constraint firstItem="7i5-ag-iZM" firstAttribute="top" secondItem="gbO-Nw-uMS" secondAttribute="bottom" constant="8" symbolic="YES" id="AKk-il-xgk"/>
+                            <constraint firstItem="gbO-Nw-uMS" firstAttribute="top" secondItem="y5l-eL-WUQ" secondAttribute="bottom" constant="47" id="AuG-c4-hoP"/>
+                            <constraint firstItem="y5l-eL-WUQ" firstAttribute="leading" secondItem="gbO-Nw-uMS" secondAttribute="leading" id="Kl1-4g-oZn"/>
+                            <constraint firstItem="LCt-Tx-Lj6" firstAttribute="top" secondItem="EVL-uv-x6a" secondAttribute="bottom" constant="43" id="SjO-E1-QJV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="y5l-eL-WUQ" secondAttribute="trailing" constant="96" id="UAe-td-Akf"/>
+                            <constraint firstItem="y5l-eL-WUQ" firstAttribute="top" secondItem="LCt-Tx-Lj6" secondAttribute="bottom" constant="19" id="fzn-cr-PLi"/>
+                            <constraint firstItem="7i5-ag-iZM" firstAttribute="leading" secondItem="QeX-Xb-oJc" secondAttribute="leading" id="iHv-qJ-VhC"/>
+                            <constraint firstAttribute="trailing" secondItem="7i5-ag-iZM" secondAttribute="trailing" id="ix9-Oo-YiE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gbO-Nw-uMS" secondAttribute="trailing" constant="77" id="pRu-A6-4of"/>
+                            <constraint firstItem="y5l-eL-WUQ" firstAttribute="leading" secondItem="QeX-Xb-oJc" secondAttribute="leadingMargin" constant="93" id="rGW-Zv-ZTm"/>
+                            <constraint firstItem="LCt-Tx-Lj6" firstAttribute="centerX" secondItem="y5l-eL-WUQ" secondAttribute="centerX" id="yHx-F4-x5M"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Group" id="pvL-gn-Xt0">
@@ -582,7 +587,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                                             <connections>
-                                                <outlet property="delegate" destination="ZEZ-zD-tOs" id="CoK-Wj-W6c"/>
+                                                <outlet property="delegate" destination="qgX-SW-9Py" id="dDm-0u-Kja"/>
                                             </connections>
                                         </textView>
                                     </subviews>
