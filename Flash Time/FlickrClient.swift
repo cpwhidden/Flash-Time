@@ -35,8 +35,14 @@ class FlickrClient {
                         let max = min(21, total)
                         slice = Array(slice[0..<max])
                         let urls = map(slice) { (photo: [String:AnyObject]) -> NSURL in
-                            let urlString = photo[APIConstants.urlExtra] as! String
-                            return NSURL(string: urlString)!
+                            if let urlString = photo[APIConstants.urlExtra] as? String {
+                                return NSURL(string: urlString)!
+                            } else if let farm = photo["farm"] as? Int, server = photo["server"] as? Int, id = photo["id"] as? Int, secret = photo["secret"] as? String {
+                                return NSURL(string: "https://farm\(farm).staticflickr.com/\(server)/\(id)_\(secret)_b.jpg")!
+                            } else {
+                                fatalError("Cannot parse URL for photo")
+                            }
+                            
                         }
                         completionHandler(urls: urls, error: nil)
                 } else {

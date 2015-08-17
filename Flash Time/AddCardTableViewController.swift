@@ -66,6 +66,10 @@ class AddCardTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 200.0
+    }
+    
     @IBAction func cancelTapped(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -102,6 +106,7 @@ class AddCardTableViewController: UITableViewController {
                     let imagePath = "" // TODO: Save new image to documents image path
                     self.image = image
                     self.imagePath = imagePath
+                    self.tableView.reloadData()
                 }
             default:
                 break

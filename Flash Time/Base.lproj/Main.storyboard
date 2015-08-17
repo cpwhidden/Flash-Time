@@ -483,6 +483,9 @@
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UEe-Xm-FIo">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="200" id="ePu-gd-yIN"/>
+                                            </constraints>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
@@ -491,7 +494,6 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="UEe-Xm-FIo" secondAttribute="trailing" id="FNB-k8-ngv"/>
                                         <constraint firstItem="UEe-Xm-FIo" firstAttribute="top" secondItem="k5L-T1-xtL" secondAttribute="top" id="WLg-ew-l36"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="UEe-Xm-FIo" secondAttribute="bottom" constant="-8.5" id="gw9-Kg-KGN"/>
                                         <constraint firstItem="UEe-Xm-FIo" firstAttribute="leading" secondItem="k5L-T1-xtL" secondAttribute="leading" id="svb-kM-RwQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -504,12 +506,14 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qid-4M-ClP" id="Qar-3g-WBQ">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WA9-HV-F9m">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WA9-HV-F9m">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="200" id="V7G-11-u5f"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="WA9-HV-F9m" secondAttribute="bottom" constant="-8.5" id="4Qa-wj-nvD"/>
                                         <constraint firstAttribute="trailing" secondItem="WA9-HV-F9m" secondAttribute="trailing" id="KTv-oB-pVe"/>
                                         <constraint firstItem="WA9-HV-F9m" firstAttribute="leading" secondItem="Qar-3g-WBQ" secondAttribute="leading" id="U5j-LH-fiS"/>
                                         <constraint firstItem="WA9-HV-F9m" firstAttribute="top" secondItem="Qar-3g-WBQ" secondAttribute="top" id="eqs-Vk-cI8"/>
@@ -569,8 +573,11 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bzF-DJ-3am">
-                                            <rect key="frame" x="0.0" y="-1" width="600" height="200"/>
+                                            <rect key="frame" x="0.0" y="-2" width="600" height="200"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="200" id="47U-fl-KAQ"/>
+                                            </constraints>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
@@ -578,8 +585,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="bzF-DJ-3am" secondAttribute="trailing" id="X9p-t4-WJJ"/>
-                                        <constraint firstItem="bzF-DJ-3am" firstAttribute="top" secondItem="ex2-eA-YdU" secondAttribute="topMargin" constant="-9" id="osS-wa-AcT"/>
-                                        <constraint firstItem="bzF-DJ-3am" firstAttribute="centerY" secondItem="ex2-eA-YdU" secondAttribute="centerY" id="rhG-Wf-yUU"/>
+                                        <constraint firstItem="bzF-DJ-3am" firstAttribute="top" secondItem="ex2-eA-YdU" secondAttribute="topMargin" constant="-10" id="osS-wa-AcT"/>
                                         <constraint firstItem="bzF-DJ-3am" firstAttribute="leading" secondItem="ex2-eA-YdU" secondAttribute="leading" id="uFr-1n-YEe"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -592,15 +598,17 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p8Y-uQ-SgZ" id="Wy2-jU-bb0">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dWE-BT-rli">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dWE-BT-rli">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="200" id="y2E-pd-IsU"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="dWE-BT-rli" firstAttribute="leading" secondItem="Wy2-jU-bb0" secondAttribute="leading" id="EBA-Rq-8gI"/>
                                         <constraint firstItem="dWE-BT-rli" firstAttribute="top" secondItem="Wy2-jU-bb0" secondAttribute="top" id="Iow-MN-2pa"/>
                                         <constraint firstAttribute="trailing" secondItem="dWE-BT-rli" secondAttribute="trailing" id="RKo-td-5rE"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="dWE-BT-rli" secondAttribute="bottom" constant="-8.5" id="bfx-hG-s0I"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

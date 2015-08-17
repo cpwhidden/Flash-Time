@@ -139,6 +139,10 @@ class ReviewTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 200.0
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
