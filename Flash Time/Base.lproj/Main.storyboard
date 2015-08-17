@@ -17,8 +17,8 @@
                             <rect key="frame" x="0.0" y="130" width="600" height="80"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKA-8S-7uh">
-                                    <rect key="frame" x="93" y="12" width="415" height="55"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKA-8S-7uh">
+                                    <rect key="frame" x="142.5" y="12" width="316.5" height="55"/>
                                     <string key="text">No flash card groups yet. Click the + to start studying a new group.
 </string>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -28,10 +28,11 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iKA-8S-7uh" secondAttribute="trailing" id="ENr-jz-KhJ"/>
-                                <constraint firstAttribute="centerY" secondItem="iKA-8S-7uh" secondAttribute="centerY" constant="1" id="LYf-VE-XTY"/>
-                                <constraint firstItem="iKA-8S-7uh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="p66-a1-7Jn" secondAttribute="leading" id="ScI-9v-eiZ"/>
-                                <constraint firstAttribute="centerX" secondItem="iKA-8S-7uh" secondAttribute="centerX" constant="-0.5" id="dJu-nc-fef"/>
+                                <constraint firstItem="iKA-8S-7uh" firstAttribute="centerX" secondItem="p66-a1-7Jn" secondAttribute="centerX" id="2pB-mk-ZvJ"/>
+                                <constraint firstItem="iKA-8S-7uh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="p66-a1-7Jn" secondAttribute="leading" constant="10" id="Pmd-fE-L39"/>
+                                <constraint firstItem="iKA-8S-7uh" firstAttribute="top" secondItem="p66-a1-7Jn" secondAttribute="top" constant="12" id="lbc-Ju-e5U"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iKA-8S-7uh" secondAttribute="trailing" constant="10" id="o7h-8n-suH"/>
+                                <constraint firstAttribute="bottom" secondItem="iKA-8S-7uh" secondAttribute="bottom" constant="13" id="tcC-fA-l3P"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -755,6 +756,6 @@ cards become due)</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MAB-B8-bS2"/>
+        <segue reference="wiG-3B-R8d"/>
     </inferredMetricsTieBreakers>
 </document>
