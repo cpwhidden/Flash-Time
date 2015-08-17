@@ -451,7 +451,7 @@
         <scene sceneID="bga-NM-GSE">
             <objects>
                 <tableViewController title="Review" id="hrg-iL-W9q" customClass="ReviewTableViewController" customModule="Flash_Time" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="V03-Oc-oFf">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="V03-Oc-oFf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -506,7 +506,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qid-4M-ClP" id="Qar-3g-WBQ">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WA9-HV-F9m">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WA9-HV-F9m">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="200" id="V7G-11-u5f"/>
@@ -562,7 +562,7 @@
         <scene sceneID="DcU-52-sIk">
             <objects>
                 <tableViewController title="Add Card" id="ZEZ-zD-tOs" customClass="AddCardTableViewController" customModule="Flash_Time" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Zc2-Jg-xOK">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Zc2-Jg-xOK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -573,7 +573,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bzF-DJ-3am">
-                                            <rect key="frame" x="0.0" y="-2" width="600" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="200" id="47U-fl-KAQ"/>
@@ -585,7 +585,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="bzF-DJ-3am" secondAttribute="trailing" id="X9p-t4-WJJ"/>
-                                        <constraint firstItem="bzF-DJ-3am" firstAttribute="top" secondItem="ex2-eA-YdU" secondAttribute="topMargin" constant="-10" id="osS-wa-AcT"/>
+                                        <constraint firstItem="bzF-DJ-3am" firstAttribute="top" secondItem="ex2-eA-YdU" secondAttribute="topMargin" constant="-8" id="osS-wa-AcT"/>
                                         <constraint firstItem="bzF-DJ-3am" firstAttribute="leading" secondItem="ex2-eA-YdU" secondAttribute="leading" id="uFr-1n-YEe"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -598,7 +598,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p8Y-uQ-SgZ" id="Wy2-jU-bb0">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dWE-BT-rli">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dWE-BT-rli">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="200" id="y2E-pd-IsU"/>
