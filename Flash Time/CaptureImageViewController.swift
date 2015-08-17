@@ -76,6 +76,9 @@ class CaptureImageViewController: UIViewController, UISearchBarDelegate, UIImage
                     }
                     self.nextButton.enabled = true
                     self.doneButton.enabled = true
+                } else {
+                    let alert = UIAlertView(title: "Error", message: "There was an error trying to download a photo for you", delegate: nil, cancelButtonTitle: "OK")
+                    alert.show()
                 }
                 self.searchActivityIndicator.stopAnimating()
                 self.searchActivityIndicator.hidden = true
@@ -103,6 +106,9 @@ class CaptureImageViewController: UIViewController, UISearchBarDelegate, UIImage
                     }
                     self.previousButton.enabled = true
                     self.doneButton.enabled = true
+                } else {
+                    let alert = UIAlertView(title: "Error", message: "There was an error trying to download a photo for you", delegate: nil, cancelButtonTitle: "OK")
+                    alert.show()
                 }
                 self.searchActivityIndicator.stopAnimating()
                 self.searchActivityIndicator.hidden = true
@@ -161,10 +167,15 @@ class CaptureImageViewController: UIViewController, UISearchBarDelegate, UIImage
                     } else {
                         self.searchActivityIndicator.stopAnimating()
                         self.searchActivityIndicator.hidden = true
+                        let alert = UIAlertView(title: "Cannot find any photos", message: "Could not retrieve any photos for the keyword search", delegate: nil, cancelButtonTitle: "OK")
+                        alert.show()
                     }
                     if count(urls!) > 1 {
                         self.nextButton.enabled = true
                     }
+                } else {
+                    let alert = UIAlertView(title: "Error", message: "There was an error trying to retrieve photos", delegate: nil, cancelButtonTitle: "OK")
+                    alert.show()
                 }
             }
         }
