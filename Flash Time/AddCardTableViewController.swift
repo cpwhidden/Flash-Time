@@ -75,9 +75,9 @@ class AddCardTableViewController: UITableViewController {
     }
 
     @IBAction func doneTapped(sender: UIBarButtonItem) {
-        let frontText = (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! TextTableViewCell).textView.text
+        let frontText = (tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0)) as! TextTableViewCell).textView.text
         let backIndex = (image != nil) ? 2 : 1
-        let backText = (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: backIndex, inSection: 0)) as! TextTableViewCell).textView.text
+        let backText = (tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: backIndex, inSection: 0)) as! TextTableViewCell).textView.text
         if count(frontText) > 0 {
             let card = Card(front: frontText, back: backText, dueDate: NSDate(), interval: (customConfiguration != nil) ? customConfiguration!.startingInterval : group.defaultConfiguration.startingInterval, imagePath: imagePath ?? nil, configuration: customConfiguration ?? group.defaultConfiguration, group: group)
         }
@@ -102,10 +102,16 @@ class AddCardTableViewController: UITableViewController {
                     dvc.startingImage = image
                 }
                 dvc.photoCompletionHandler = { image in
-                    // TODO: Delete current image at imagePath if found
-                    let imagePath = "" // TODO: Save new image to documents image path
+                    let docPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as! String
+                    if self.imagePath != nil {
+                        NSFileManager.defaultManager().removeItemAtPath(docPath + self.imagePath!, error: nil)
+                        self.imagePath = nil
+                    }
+                    if let image = image {
+                        self.imagePath = NSUUID().description
+                        UIImagePNGRepresentation(image).writeToFile(docPath + self.imagePath!, atomically: true)
+                    }
                     self.image = image
-                    self.imagePath = imagePath
                     self.tableView.reloadData()
                 }
             default:
