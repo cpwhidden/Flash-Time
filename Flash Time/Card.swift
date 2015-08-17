@@ -62,4 +62,8 @@ class Card: NSManagedObject {
             NSFileManager.defaultManager().removeItemAtPath(fullPath, error: nil)
         }
     }
+    
+    override func prepareForDeletion() {
+        self.deleteImage()
+    }
 }
