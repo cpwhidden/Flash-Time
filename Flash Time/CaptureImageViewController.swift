@@ -37,6 +37,7 @@ class CaptureImageViewController: UIViewController, UISearchBarDelegate, UIImage
         // Do any additional setup after loading the view.
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
             pickerButton.enabled = true
+            picker.sourceType = .Camera
         }
     }
 
@@ -134,6 +135,7 @@ class CaptureImageViewController: UIViewController, UISearchBarDelegate, UIImage
         deleteButton.enabled = true
         imageView.image = image
         doneButton.enabled = true
+        picker.dismissViewControllerAnimated(true, completion: nil)
     }
 
     // MARK: Search Bar Delegate
