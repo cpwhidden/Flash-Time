@@ -125,14 +125,8 @@
                                     <segue destination="Ccu-9K-dlG" kind="presentation" identifier="EditGroup" id="MAB-B8-bS2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have 10 cards total in this group" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iaz-aa-HPS">
-                                <rect key="frame" x="160.5" y="167" width="279.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have 5 cards due" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWT-wI-hSR">
-                                <rect key="frame" x="217" y="240.5" width="166" height="21"/>
+                                <rect key="frame" x="217" y="281" width="166" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="166" id="6o9-EA-Wc9"/>
                                     <constraint firstAttribute="height" constant="21" id="JQf-tZ-BhQ"/>
@@ -141,10 +135,16 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have 10 cards total in this group" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iaz-aa-HPS">
+                                <rect key="frame" x="161" y="193" width="279.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xWT-wI-hSR" firstAttribute="top" secondItem="Iaz-aa-HPS" secondAttribute="bottom" constant="53" id="3it-3U-13y"/>
+                            <constraint firstItem="xWT-wI-hSR" firstAttribute="top" secondItem="Iaz-aa-HPS" secondAttribute="bottom" constant="67.5" id="3it-3U-13y"/>
                             <constraint firstItem="qV9-uz-c2H" firstAttribute="baseline" secondItem="xQE-Fm-9R4" secondAttribute="baseline" id="4Wo-ta-jco"/>
                             <constraint firstAttribute="centerX" secondItem="xQE-Fm-9R4" secondAttribute="centerX" priority="999" constant="-130" id="ArB-yV-bDp"/>
                             <constraint firstItem="xWT-wI-hSR" firstAttribute="centerX" secondItem="9xm-zW-urV" secondAttribute="centerX" id="ILA-qM-mqF"/>
@@ -153,9 +153,9 @@
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="xQE-Fm-9R4" secondAttribute="trailing" id="Wn7-Ma-kTN"/>
                             <constraint firstItem="xQE-Fm-9R4" firstAttribute="top" secondItem="LE1-xb-GeC" secondAttribute="bottom" constant="33" id="eDt-VJ-grW"/>
                             <constraint firstItem="xWT-wI-hSR" firstAttribute="centerX" secondItem="hds-6o-sRn" secondAttribute="centerX" id="g6Z-J4-anO"/>
-                            <constraint firstItem="9xm-zW-urV" firstAttribute="top" secondItem="xWT-wI-hSR" secondAttribute="bottom" constant="94" id="gZb-J3-8ep"/>
+                            <constraint firstItem="9xm-zW-urV" firstAttribute="top" secondItem="xWT-wI-hSR" secondAttribute="bottom" constant="53.5" id="gZb-J3-8ep"/>
                             <constraint firstItem="qV9-uz-c2H" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hds-6o-sRn" secondAttribute="leadingMargin" id="hAT-jv-sHn"/>
-                            <constraint firstItem="Iaz-aa-HPS" firstAttribute="top" secondItem="xQE-Fm-9R4" secondAttribute="bottom" constant="40" id="w60-bN-S2H"/>
+                            <constraint firstItem="Iaz-aa-HPS" firstAttribute="top" secondItem="xQE-Fm-9R4" secondAttribute="bottom" constant="66" id="w60-bN-S2H"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Group" id="oJw-4c-a98"/>
@@ -756,6 +756,6 @@ cards become due)</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wiG-3B-R8d"/>
+        <segue reference="MAB-B8-bS2"/>
     </inferredMetricsTieBreakers>
 </document>
