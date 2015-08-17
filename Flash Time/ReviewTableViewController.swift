@@ -44,18 +44,11 @@ class ReviewTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
-    @IBAction func undoTapped(sender: UIBarButtonItem) {
-    }
     
     @IBAction func revealTapped(sender: UIBarButtonItem) {
         revealed = true
         navigationController?.toolbar.items = answerToolbarItems
         tableView.reloadData()
-    }
-    
-    @IBAction func skipTapped(sender: UIBarButtonItem) {
     }
     
     func resetTapped(sender: UIBarButtonItem) {

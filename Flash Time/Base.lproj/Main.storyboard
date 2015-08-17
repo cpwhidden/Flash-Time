@@ -535,11 +535,6 @@ cards become due)</string>
                         </connections>
                     </tableView>
                     <toolbarItems>
-                        <barButtonItem systemItem="undo" id="pl5-Ky-xW4">
-                            <connections>
-                                <action selector="undoTapped:" destination="hrg-iL-W9q" id="0WW-7G-Vdm"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="xd5-2l-0q2"/>
                         <barButtonItem title="Reveal" id="aHu-Gs-3CQ">
                             <connections>
@@ -547,11 +542,6 @@ cards become due)</string>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Iih-J0-EdL"/>
-                        <barButtonItem title="Skip" id="gfz-d2-Fc2">
-                            <connections>
-                                <action selector="skipTapped:" destination="hrg-iL-W9q" id="M7m-E2-0ZB"/>
-                            </connections>
-                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="fm9-vT-LsV"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
