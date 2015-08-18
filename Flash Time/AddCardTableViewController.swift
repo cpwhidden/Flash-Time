@@ -51,7 +51,6 @@ class AddCardTableViewController: UITableViewController, UITextViewDelegate {
             return 2
         }
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         switch indexPath.row {
@@ -96,7 +95,6 @@ class AddCardTableViewController: UITableViewController, UITextViewDelegate {
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let id = segue.identifier {
             switch id {

@@ -125,7 +125,6 @@ class CaptureImageViewController: UIViewController, UISearchBarDelegate, UIImage
         doneButton.enabled = true
     }
     
-    
     // MARK: Image Picker Controller Delegate
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
@@ -187,4 +186,5 @@ class CaptureImageViewController: UIViewController, UISearchBarDelegate, UIImage
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
+    
 }

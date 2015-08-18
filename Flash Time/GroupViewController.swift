@@ -60,5 +60,4 @@ class GroupViewController: UIViewController {
         }
     }
     
-
 }
