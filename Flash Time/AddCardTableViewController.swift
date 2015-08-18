@@ -58,6 +58,7 @@ class AddCardTableViewController: UITableViewController, UITextViewDelegate {
         case 0:
             let cell = tableView.dequeueReusableCellWithIdentifier("Text", forIndexPath: indexPath) as! TextTableViewCell
             cell.textView.text = frontText
+            println(cell.textView.delegate)
             return cell
         case 1:
             if let image = image {
@@ -87,9 +88,6 @@ class AddCardTableViewController: UITableViewController, UITextViewDelegate {
     }
 
     @IBAction func doneTapped(sender: UIBarButtonItem) {
-        let frontText = (tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0)) as! TextTableViewCell).textView.text
-        let backIndex = (image != nil) ? 2 : 1
-        let backText = (tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: backIndex, inSection: 0)) as! TextTableViewCell).textView.text
         if count(frontText) > 0 {
             let card = Card(front: frontText, back: backText, dueDate: NSDate(), interval: (customConfiguration != nil) ? customConfiguration!.startingInterval : group.defaultConfiguration.startingInterval, imagePath: imagePath ?? nil, configuration: customConfiguration ?? group.defaultConfiguration, group: group)
         }

@@ -14,7 +14,6 @@ class TextTableViewCell: UITableViewCell, UITextViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        textView.delegate = self
     }
     
 

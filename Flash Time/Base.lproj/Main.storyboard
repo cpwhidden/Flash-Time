@@ -598,7 +598,7 @@ cards become due)</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                                             <connections>
-                                                <outlet property="delegate" destination="qgX-SW-9Py" id="dDm-0u-Kja"/>
+                                                <outlet property="delegate" destination="ZEZ-zD-tOs" id="IQc-ZE-sYn"/>
                                             </connections>
                                         </textView>
                                     </subviews>
